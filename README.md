@@ -52,7 +52,7 @@ import ProjectOne from './app/projects/projectOne/page';
 For components, the process is similar. If you're in a file at the root of your project and you want to import the component.jsx from projectCardOne, you would do:
 
 ```jsx
-import ProjectCardOne from './components/projectCardOne/component';
+import ProjectCardOne from './components/ProjectCardOne/component';
 
 ```
 
