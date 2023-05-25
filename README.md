@@ -1,6 +1,9 @@
 # Nicolaas's Portfolio 
 
-This is a Next.js project bootstrapped with create-next-app.
+This is a Next.js project bootstrapped with 
+```markdown 
+create-next-app@latest project-name --use-npm
+```
 
 ## Naming Conventions
 
