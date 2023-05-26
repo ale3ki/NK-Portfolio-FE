@@ -1,0 +1,88 @@
+.logo-image {
+    max-height: 50px;
+    margin-right: 10px;
+}
+
+.nav-link {
+  color: #000000 !important;
+  font-family: 'Unbounded-Regular', sans-serif;
+  margin-right: 20px;
+
+
+}
+
+.navbar{
+
+  color:#1861ac;
+  
+}
+
+
+.nav-link:hover {
+    cursor: pointer;
+    color: #818181 !important;
+
+}
+
+.d-flex {
+
+    font-family: 'Unbounded-Bold', sans-serif;
+}
+
+.aLink {
+    color: #0077cc;
+    font-family: 'Unbounded-Regular', sans-serif;
+}
+
+.noUnderline {
+  text-decoration: none;
+  
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+   
+}
+
+.content-wrap {
+    flex: 1;
+}
+
+.navbar {
+    margin-bottom: 0 !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030; /* To keep the navbar on top of other elements */
+}
