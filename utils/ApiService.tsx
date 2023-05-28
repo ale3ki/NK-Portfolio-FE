@@ -35,24 +35,13 @@ class ApiService {
     this.serviceStarting = false;
   }
 
-  //PUBLIC FUNCTIONS
-  public async fetchPageData(pageId: String) {
-    //Not being used but available nonetheless.
-    const response = await fetch(`${process.env.NEXT_APP_API_BASE_URL}/PageData/${pageId}`);
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch page data. HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data;
-  }
+  
 
   //PUBLIC GETTER FUNCTIONS
   public async getContainerDataByPageID(pageID: number, containerID: number) {
 
     // TODO : Split this function up into 2 functions  
-    
+
     if (!await this.checkStatus()) {
 
       console.log("MESSAGE: API SERVICE IS READY TO PULL DATA FROM LOCAL CACHE");
@@ -72,6 +61,8 @@ class ApiService {
     } else {
       console.error(`Data not loaded yet`);
     }
+
+    return null;
   }
 
   //PRIVATE FUNCTIONS
