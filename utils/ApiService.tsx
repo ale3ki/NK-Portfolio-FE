@@ -19,68 +19,45 @@ class ApiService {
   }
 
   private async startService() {
-
+    //This is an automated function that the getters call.
     this.serviceStarting = true;
-
     await this.fetchAllPages()
       .then(() => {
-        console.log("SUCCESS: Api Services has successfully started.");
+        console.log("INFO: API Services successfully initialized.");
         this.dataLoaded = true;
       })
       .catch((error) => {
         this.fatalError = true;
-        console.error("WARNING: Api Services was unable to start.", error);
+        console.error("ERROR: API Services failed to initialize.", error);
       });
-
     this.serviceStarting = false;
-  }
-
-  //PUBLIC FUNCTIONS
-  public async fetchPageData(pageId: String) {
-    //Not being used but available nonetheless.
-    const response = await fetch(`${process.env.NEXT_APP_API_BASE_URL}/PageData/${pageId}`);
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch page data. HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data;
   }
 
   //PUBLIC GETTER FUNCTIONS
   public async getContainerDataByPageID(pageID: number, containerID: number) {
+    const status = await this.checkStatus();
+    const pageData = this.allPages[pageID];
+    const containerData = pageData['containers'][containerID];
 
-    // TODO : Split this function up into 2 functions  
+    if (!status) {
+      console.log("INFO: API Service is prepared to retrieve data from local cache.");
+      
+      if (pageData && containerData){
+        console.log("INFO: API Services successfully retrieved the data.");
+        return containerData;
 
-    if (!await this.checkStatus()) {
-
-      console.log("MESSAGE: API SERVICE IS READY TO PULL DATA FROM LOCAL CACHE");
-      const pageData = this.allPages[pageID];
-
-      if (pageData) {
-        const containerData = pageData['containers'].find((container: any) => container.container === containerID);
-        console.log("MESSAGE: Found Page Data");
-
-        if (containerData) {
-          console.log("MESSAGE: Found 'Container' Data");
-          return containerData;
-        } else {
-          console.error(`Container ${containerID} does not exist on page ${pageID}`);
-        }
       } else {
-        console.error(`Page ${pageID} does not exist`);
+        this.nullDataLogger([`Page ${pageID}`, `Container ${containerID}`], [pageData, containerData]);
+        return null;  // Explicitly return null if the container data was not found
       }
     } else {
-      console.error(`An Error has occurred - CHECK LOGS ABOVE`);
+      console.error("ERROR: An issue has occurred. Please refer to the logs above for details.");
+      return Promise.resolve(null);  // Return a resolved Promise if checkStatus() was true
     }
-
-    return null;
   }
 
   //PRIVATE FUNCTIONS
   private async fetchAllPages() {
-    //This gets called once upon instantiation.
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/PageData/All`);
     await this.checkResponse(response);
   }
@@ -88,7 +65,6 @@ class ApiService {
   private async checkResponse(response: Response) {
 
     let responseCheck: boolean = true;
-
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -98,28 +74,41 @@ class ApiService {
   }
 
   private async checkStatus() {
-    //Checks to see if our data is cached and if the service recently failed to start.
-    //If all is well, we will start the service. 
-    //This service attemps to start itself of initial page load, automatically via the getter functions. 
-    //TODO : Fix this ugly mess.  CheckStatus might grow and eventually need a new class altogether. 
-    //Just fix the data structure for now. 
-    // TODO : Depending on how many error codes we will have, we can create a mathematical system that just counts the error codes 
-    // and deciphers the errors automatically through a deserialization service that we can develop. 
-
-    let status: boolean = false;
+    /* This method verifies the current status of our data and the service.
+   * It checks whether the data is cached, if the service has is starting up, and whether there was a recent failure in service initialization.
+   * If no issues are detected, the service will be launched.
+   * This service aims to auto-start during the initial page load via the getter functions.
+   *
+   * TODO: Refactor into a switch (not sure if JS supports switches).
+   *
+   * TODO: Depending on the variety of error codes encountered, we can implement a systematic approach
+   * that counts and deciphers the error codes automatically. This can be achieved by creating a
+   * deserialization service that we can develop in the future. 
+   */
 
     if (!this.dataLoaded && !this.fatalError && !this.serviceStarting) {
-      console.log("MESSAGE: Api Services attempting to start......");
+      console.log("INFO: API Services is initiating startup...");
       await this.startService();
     } else if (this.dataLoaded) {
-      console.log("MESSAGE: Data already loaded into cache.....");
+      console.log("INFO: API Services has already loaded data into the cache.");
     } else if (this.serviceStarting) {
-      console.log("MESSAGE: Api Services is currently loading....");
+      console.log("INFO: API Services is in the process of loading...");
     } else {
-      console.error("WARNING: Api Services was unable to start.  Check logs for additional details.");
+      console.error("ERROR: API Services failed to start. Please refer to preceding logs for further details.");
     }
     return this.fatalError;
   }
+
+  private nullDataLogger(containerNames: string[], containers: any[]){
+    // Check each container for data and log the result
+    for (let i = 0; i < containers.length; i++) {
+        if(containers[i]){
+            console.log(`INFO: Data for ${containerNames[i]} has been successfully located.`);
+        }else{
+            console.log(`ERROR: Data for ${containerNames[i]} was not found.`);
+        }
+    }
+}
 
 }
 
