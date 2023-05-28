@@ -1,12 +1,10 @@
-import Image from 'next/image'
-import styles from './page.module.css'
 
-export default function Home() {
+
+export default function Page() {
+  // Render your component using pageData
   return (
-    <main className='main'>
-
-      
-      
+    <main>
+  
     </main>
-  )
+  );
 }
