@@ -59,9 +59,11 @@ class ApiService {
       const pageData = this.allPages[pageID];
 
       if (pageData) {
-        const containerData = pageData[containerID];
+        const containerData = pageData['containers'].find((container: any) => container.container === containerID);
+        console.log("MESSAGE: Found Page Data");
 
         if (containerData) {
+          console.log("MESSAGE: Found 'Container' Data");
           return containerData;
         } else {
           console.error(`Container ${containerID} does not exist on page ${pageID}`);
@@ -70,7 +72,7 @@ class ApiService {
         console.error(`Page ${pageID} does not exist`);
       }
     } else {
-      console.error(`Data not loaded yet`);
+      console.error(`An Error has occurred - CHECK LOGS ABOVE`);
     }
 
     return null;
@@ -79,7 +81,7 @@ class ApiService {
   //PRIVATE FUNCTIONS
   private async fetchAllPages() {
     //This gets called once upon instantiation.
-    const response = await fetch(`${process.env.NEXT_APP_API_BASE_URL}/PageData/All`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/PageData/All`);
     await this.checkResponse(response);
   }
 
@@ -102,7 +104,7 @@ class ApiService {
     //TODO : Fix this ugly mess.  CheckStatus might grow and eventually need a new class altogether. 
     //Just fix the data structure for now. 
     // TODO : Depending on how many error codes we will have, we can create a mathematical system that just counts the error codes 
-    // and deciphers the errors automatically through a deserialization service that we can create manually. 
+    // and deciphers the errors automatically through a deserialization service that we can develop. 
 
     let status: boolean = false;
 
