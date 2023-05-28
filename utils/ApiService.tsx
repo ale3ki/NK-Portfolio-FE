@@ -35,7 +35,18 @@ class ApiService {
     this.serviceStarting = false;
   }
 
-  
+  //PUBLIC FUNCTIONS
+  public async fetchPageData(pageId: String) {
+    //Not being used but available nonetheless.
+    const response = await fetch(`${process.env.NEXT_APP_API_BASE_URL}/PageData/${pageId}`);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch page data. HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  }
 
   //PUBLIC GETTER FUNCTIONS
   public async getContainerDataByPageID(pageID: number, containerID: number) {
