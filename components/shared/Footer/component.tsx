@@ -1,6 +1,19 @@
+"use client"
 import styles from './styles.module.css';
+import { useApiService } from '../../../utils/ApiServiceContext';
+
+
+
+
 
 const Footer = () => {
+
+    const apiService = useApiService();
+
+    apiService.getContainerDataByPageID(0, 0).then(containerData => {
+        console.log(containerData);
+    });
+    
   return (
     <div className={`container`}>
             <div className={`${styles[`adjustable-aboutme-sub-container`]}`}>
@@ -18,7 +31,6 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-       
     </div>
   );
 };

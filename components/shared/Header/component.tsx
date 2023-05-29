@@ -1,14 +1,17 @@
+'use client'
+
 import Link from "next/link";
 import styles from './styles.module.css';
 
 const Navbar = () => {
     // Navlinks
+
     const navLinks = [
       { path: '/work', name: 'Work' },
       { path: '/about', name: 'About' },
       { path: '/contact', name: 'Contact' },
     ];
-  
+
     return (
       <nav className={`${styles.navbar} navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow`}>
         <div className={`container`}>

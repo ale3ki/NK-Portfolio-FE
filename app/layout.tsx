@@ -1,9 +1,13 @@
+
 import './globals.css'
 import { Inter } from 'next/font/google'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavBar from '../components/shared/Header/component'
 import Footer from '../components/shared/Footer/component'
+
+import { ApiServiceProvider } from '../utils/ApiServiceContext';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,19 +16,15 @@ export const metadata = {
   description: 'Create. Inspire. Design.',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      
+    <html lang="en"> 
       <body className={inter.className}>
-      <NavBar />
-        {children}
-      <Footer/>
-
+        <ApiServiceProvider>
+          <NavBar />
+          {children}
+          <Footer/>
+        </ApiServiceProvider>
       </body>
     </html>
   )

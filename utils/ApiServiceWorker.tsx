@@ -11,6 +11,7 @@ class ApiService {
   fatalError: boolean;
   serviceStarting: boolean;
 
+
   constructor() {
     this.allPages = null;
     this.dataLoaded = false;
@@ -36,14 +37,14 @@ class ApiService {
   //PUBLIC GETTER FUNCTIONS
   public async getContainerDataByPageID(pageID: number, containerID: number) {
     const status = await this.checkStatus();
-    const pageData = this.allPages[pageID];
-    const containerData = pageData['containers'][containerID];
-
     if (!status) {
       console.log("INFO: API Service is prepared to retrieve data from local cache.");
-      
-      if (pageData && containerData){
+      const pageData = this.allPages[pageID];
+
+      const containerData = pageData['containers'][containerID];
+      if (pageData && containerData) {
         console.log("INFO: API Services successfully retrieved the data.");
+        //console.log("Data: ", containerData);
         return containerData;
 
       } else {
@@ -99,16 +100,16 @@ class ApiService {
     return this.fatalError;
   }
 
-  private nullDataLogger(containerNames: string[], containers: any[]){
+  private nullDataLogger(containerNames: string[], containers: any[]) {
     // Check each container for data and log the result
     for (let i = 0; i < containers.length; i++) {
-        if(containers[i]){
-            console.log(`INFO: Data for ${containerNames[i]} has been successfully located.`);
-        }else{
-            console.log(`ERROR: Data for ${containerNames[i]} was not found.`);
-        }
+      if (containers[i]) {
+        console.log(`INFO: Data for ${containerNames[i]} has been successfully located.`);
+      } else {
+        console.log(`ERROR: Data for ${containerNames[i]} was not found.`);
+      }
     }
-}
+  }
 
 }
 
