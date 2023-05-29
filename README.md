@@ -81,7 +81,7 @@ The `ApiServiceContext` is a React context created to provide the ApiService ins
 
 ## Usage
 
-The ApiService class is instantiated once in the ApiServiceProvider component. This component wraps the root component in `_app.tsx`, thereby providing the ApiService to all components in the application through context. To access the ApiService in a component, use the `useApiService` hook.
+The ApiService class is instantiated once in the ApiServiceProvider component. This component wraps the root component in `layout.tsx`, thereby providing the ApiService to all components in the application through context. To access the ApiService in a component, use the `useApiService` hook.
 
 ### Using the `useApiService` hook
 
