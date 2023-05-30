@@ -27,6 +27,8 @@ export default function Footer() {
     fetchData();
   }, [apiService]);
 
+  //Switch case for the 3 different possible html structures.
+  //Loading, Error Fetching Data, and default.
   switch (data) {
     case (undefined):
       return <div>Loading...</div>;
@@ -35,15 +37,12 @@ export default function Footer() {
       return <div>Whoops, there was a fatal error fetching the data.</div>;
 
     default:
-
-    console.log(`${data.resume}${data.blobLinkAppend}`);
-    console.log(`${data.blobLinkAppend}`)
       return (
         <div className={`container`}>
           <div className={`${styles[`adjustable-aboutme-sub-container`]}`}>
             <div className={`${styles[`aboutme-text-wrapper2`]}`} id='aboutme-text-wrapper'>
               <div id="line-top">
-                <h1 className={`${styles[`title-header-bottom2`]} ${styles[`line-top`]}`}>{data.title} <br /> View my <a href={`${data.resume}${data.blobLinkAppend}`} download className={styles.resumeLink}>resume</a></h1>
+                <h1 className={`${styles[`title-header-bottom2`]} ${styles[`line-top`]}`}>{data.title} <br /> View my <a href={`${data.resume}${data.blobLinkAppend}`} target="_blank" rel="noopener noreferrer" download className={styles.resumeLink}>resume</a></h1>
               </div>
               <div id="line-bottom">
                 <p className={`${styles[`description-bottom2`]} ${styles[`line-bottom`]}`}>
