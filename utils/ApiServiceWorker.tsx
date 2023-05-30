@@ -46,7 +46,9 @@ class ApiService {
   
         if (pageData && containerData) {
           console.log("INFO: API Services successfully retrieved the data.");
-          //console.log("Data: ", containerData);
+          console.log("Data: ", containerData);
+          containerData.blobLinkAppend = "?" + pageData.blobAppendSAS;
+          console.log("BLOBBY Data: ", containerData.blobLinkAppend);
           return containerData;
         } else {
           //Automates checking for undefined containers.

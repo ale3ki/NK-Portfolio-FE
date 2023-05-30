@@ -7,6 +7,7 @@ export interface CarouselCard {
 
 export interface Container {
   container: number;
+  blobLinkAppend?: string;
   title?: string;
   description?: string;
   description2?: string;
@@ -25,5 +26,6 @@ export interface Container {
 
 export interface PageData {
   pageID: number;
+  blobAppendSAS?: string;
   containers: Container[];
 }
