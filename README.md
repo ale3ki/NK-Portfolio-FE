@@ -126,6 +126,45 @@ const MyComponent = () => {
 ```
 This pattern can be used in any component that needs to fetch data using the ApiService. 
 
+
+## `nullDataLogger(containerNames: string[], containers: any[]): void`
+
+The `nullDataLogger` function is a private helper method inside the `ApiService` class. It is utilized exclusively for logging error messages when the requested page or container data is not found in the local cache, i.e., the fetched data from the endpoint comes back as `undefined`.
+
+### Parameters
+
+- `containerNames`: An array of strings, each representing the unique identifier or name for a container (e.g., `Page ${pageID}` or `Container ${containerID}`). The `containerNames` array and the `containers` array are designed to be of equal length and correspond to each other.
+
+- `containers`: An array of containers of any type (arrays, objects, numbers, etc.). The containers are the actual data structures whose existence you wish to validate.
+
+### Functionality
+
+`nullDataLogger` iterates over the `containers` array, checks if each container is defined, and logs an appropriate message to the console. If the container is `undefined`, an error message is logged stating that the data for the corresponding container was not found.
+
+This function is specifically designed to provide meaningful logging when requested data is not found in the cache. It's triggered within the `getContainerDataByPageID` method, which is a public method responsible for retrieving specific container data based on the given `pageID` and `containerID`.
+
+### Return Value
+
+This function does not return any value. Its sole purpose is to log error messages to the console when the requested page or container data is `undefined`.
+
+### Use Case
+
+Consider a scenario where you've requested data for specific containers via the `getContainerDataByPageID` method. If the method can't find data in the local cache for the provided `pageID` or `containerID`, it calls `nullDataLogger` to log specific error messages for these containers, aiding in identifying and debugging data fetching issues.
+
+```typescript
+// Assume a call to `getContainerDataByPageID` with a specific `pageID` and `containerID`.
+const pageID = 3;
+const containerID = 5;
+const containerData = await this.getContainerDataByPageID(pageID, containerID);
+
+// If the data for the page or container is `undefined`, `nullDataLogger` will be invoked.
+// The following logs might be seen in the console:
+// "ERROR: Data for Page 3 was not found."
+// or
+// "ERROR: Data for Container 5 was not found."
+```
+ApiServiceWorker has an additional logger in place to catch other errors such as networking errors or client side fetch related errors. 
+
 ## Getting Started
 
 First, run the development server:

@@ -4,13 +4,14 @@
 //the getters have a checker in place to ensure the data is loaded, if it isnt, we load it asychronously. 
 //Please refer to the README documentation for additional information. 
 
+import { PageData, Container } from './ApiDataInterface';
+
 class ApiService {
 
-  allPages: any;
+  allPages: PageData[] | null;
   dataLoaded: boolean;
   fatalError: boolean;
   serviceStarting: boolean;
-
 
   constructor() {
     this.allPages = null;
@@ -34,26 +35,35 @@ class ApiService {
     this.serviceStarting = false;
   }
 
-  //PUBLIC GETTER FUNCTIONS
-  public async getContainerDataByPageID(pageID: number, containerID: number) {
+  public async getContainerDataByPageID(pageID: number, containerID: number): Promise<Container | null> {
     const status = await this.checkStatus();
-    if (!status) {
-      console.log("INFO: API Service is prepared to retrieve data from local cache.");
-      const pageData = this.allPages[pageID];
-
-      const containerData = pageData['containers'][containerID];
-      if (pageData && containerData) {
-        console.log("INFO: API Services successfully retrieved the data.");
-        //console.log("Data: ", containerData);
-        return containerData;
-
-      } else {
-        this.nullDataLogger([`Page ${pageID}`, `Container ${containerID}`], [pageData, containerData]);
-        return null;  // Explicitly return null if the container data was not found
-      }
-    } else {
-      console.error("ERROR: An issue has occurred. Please refer to the logs above for details.");
-      return Promise.resolve(null);  // Return a resolved Promise if checkStatus() was true
+  
+    switch (status) {
+      case 'success':
+        console.log("INFO: API Service is prepared to retrieve data from local cache.");
+        const pageData = this.allPages![pageID];
+        const containerData = pageData?.containers[containerID];
+  
+        if (pageData && containerData) {
+          console.log("INFO: API Services successfully retrieved the data.");
+          console.log("Data: ", containerData);
+          containerData.blobLinkAppend = "?" + pageData.blobAppendSAS;
+          console.log("BLOBBY Data: ", containerData.blobLinkAppend);
+          return containerData;
+        } else {
+          //Automates checking for undefined containers.
+          this.nullDataLogger([`Page ${pageID}`, `Container ${containerID}`], [pageData, containerData]);
+          return null;  
+        }
+  
+      case 'loading':
+        // Waiting for 1 second before retry.  Not sure if this is bad to do but we will find out one way or another.
+        await new Promise(resolve => setTimeout(resolve, 1000));  
+        return this.getContainerDataByPageID(pageID, containerID);
+  
+      default:
+        //Failed will default here aswell.
+        return null; 
     }
   }
 
@@ -74,30 +84,26 @@ class ApiService {
     this.allPages = data;
   }
 
-  private async checkStatus() {
-    /* This method verifies the current status of our data and the service.
-   * It checks whether the data is cached, if the service has is starting up, and whether there was a recent failure in service initialization.
-   * If no issues are detected, the service will be launched.
-   * This service aims to auto-start during the initial page load via the getter functions.
-   *
-   * TODO: Refactor into a switch (not sure if JS supports switches).
-   *
-   * TODO: Depending on the variety of error codes encountered, we can implement a systematic approach
-   * that counts and deciphers the error codes automatically. This can be achieved by creating a
-   * deserialization service that we can develop in the future. 
-   */
+  private async checkStatus(): Promise<"success" | "loading" | "failed"> {
 
     if (!this.dataLoaded && !this.fatalError && !this.serviceStarting) {
       console.log("INFO: API Services is initiating startup...");
       await this.startService();
+      if (this.dataLoaded) {
+        return "success";
+      } else {
+        return "loading";
+      }
     } else if (this.dataLoaded) {
       console.log("INFO: API Services has already loaded data into the cache.");
+      return "success";
     } else if (this.serviceStarting) {
       console.log("INFO: API Services is in the process of loading...");
+      return "loading";
     } else {
       console.error("ERROR: API Services failed to start. Please refer to preceding logs for further details.");
+      return "failed";
     }
-    return this.fatalError;
   }
 
   private nullDataLogger(containerNames: string[], containers: any[]) {
