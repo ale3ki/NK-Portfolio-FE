@@ -18,7 +18,7 @@ export default function Top() {
     const [data, setData] = useState<Container | null | undefined>(undefined);
     const apiService = useApiService();
     const [visibleIndex, setVisibleIndex] = useState(0);
-    const hues = ['blue', 'orange', 'purple']; //change me for button hue
+    const hues = ['blue', 'red', 'purple']; //change me for button hue
     const timeChange: number = 3000; // 5 seconds
 
     useEffect(() => {
