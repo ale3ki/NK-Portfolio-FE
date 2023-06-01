@@ -4,24 +4,16 @@
 }
 
 .nav-link {
-  color: #000000 !important;
+  color: #474747 !important;
   font-family: 'Unbounded-Regular', sans-serif;
-  margin-right: 20px;
+  margin-left: 5vw;
 
 
 }
-
-.navbar{
-
-  color:#1861ac;
-  
-}
-
 
 .nav-link:hover {
     cursor: pointer;
     color: #818181 !important;
-
 }
 
 .d-flex {

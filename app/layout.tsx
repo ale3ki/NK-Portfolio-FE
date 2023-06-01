@@ -11,8 +11,6 @@ import { ApiServiceProvider } from '../utils/ApiServiceContext';
 
 const inter = Inter({ subsets: ['latin'] })
 
-
-
 export const metadata = {
   title: "Nicolaas's Portfolio",
   description: 'Create. Inspire. Design.',
@@ -31,18 +29,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
-
-export async function getStaticProps() {
-  // Call an external API endpoint to get posts
-  const res = await fetch('https://.../posts');
-  const posts = await res.json();
- 
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
-  return {
-    props: {
-      posts,
-    },
-  };
-}
-

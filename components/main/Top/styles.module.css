@@ -1,0 +1,102 @@
+.centeredContainer {
+    min-height: 100vh;
+    align-items: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15%;
+  }
+
+.title-header-top {
+    font-family: 'Unbounded-Black', sans-serif;
+    font-size: clamp(20px, 3vw, 60px);
+ 
+
+    position: relative;
+    background: var(--newGradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.description {
+    font-family: 'Unbounded-Regular', sans-serif;
+    font-size: clamp(15px, 1.5vw, 25px);
+    color: #606060;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    margin-top: 4%;
+}
+
+.subDescription {
+    font-family: 'Unbounded-Medium', sans-serif;
+    font-size: clamp(10px, 1.5vw, 15px);
+    color: #474747;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    margin-top: 10%;
+}
+
+.description, .title-header-top, .subDescription {
+    text-align: center;
+  }
+
+  .resumeButton {
+    color: white;
+    background-color: rgba(51, 48, 48, 0.856);
+    margin-right: 6vw;
+    white-space: nowrap;
+}
+
+.buttonBlock{
+    margin-top: 5%;
+    font-family: 'Unbounded-Regular', sans-serif;
+    
+}
+
+.projectsButton {
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    border: rgb(32, 32, 185);
+    box-shadow: 0 0 75px blue, 0 0 5px blue; 
+}
+
+.projectsButton, .resumeButton{
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: calc(.5vw + 10px);
+    transition-duration: 0.4s;
+    padding: 4.5% 25%;
+}
+
+.logo-image{
+    margin-top:2vh;
+
+    margin-bottom: 50px;
+}
+
+/*
+Changing color text
+*/
+.wordBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+    font-family: 'Unbounded-Black', sans-serif;
+   
+    position: absolute;
+  }
+  
+  .wordContainer {
+    position: relative;
+    display: inline-flex;
+  
+  }
+  
+  .testing {
+    position: relative;
+    color: black;
+    transition: opacity 1s;
+    font-size: clamp(20px, 3vw, 60px)
+  }

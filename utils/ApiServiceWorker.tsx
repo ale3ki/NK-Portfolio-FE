@@ -1,7 +1,8 @@
-//This APIService is hooked up to a RESTful .net backend and is instantiated once at the top-level (layout.tsx).
-//This service gets started automatically when a consumer first loads the website.
+//This APIService is a singlteton class hooked up to a RESTful .net backend and is instantiated once at the top-level (layout.tsx).
+//This service is started automatically when a consumer first loads the website.
+//Due to the static nature of the content for this portfolio website, we load all our react components in parallel.
 //Upon importing this on the top-level and instantiating it, our comps will call the getters to grab their data and
-//the getters have a checker in place to ensure the data is loaded, if it isnt, we load it asychronously. 
+//the getters have a checker in place to ensure the data is loaded, if it isnt, we load it asychronously and then cache the data.
 //Please refer to the README documentation for additional information. 
 
 import { PageData, Container } from './ApiDataInterface';
@@ -46,23 +47,21 @@ class ApiService {
   
         if (pageData && containerData) {
           console.log("INFO: API Services successfully retrieved the data.");
-          console.log("Data: ", containerData);
           containerData.blobLinkAppend = "?" + pageData.blobAppendSAS;
-          console.log("BLOBBY Data: ", containerData.blobLinkAppend);
           return containerData;
         } else {
-          //Automates checking for undefined containers.
+          //Automates logging the undefined containers.
           this.nullDataLogger([`Page ${pageID}`, `Container ${containerID}`], [pageData, containerData]);
           return null;  
         }
-  
       case 'loading':
-        // Waiting for 1 second before retry.  Not sure if this is bad to do but we will find out one way or another.
+        // Waiting for 1 second before retry. 
         await new Promise(resolve => setTimeout(resolve, 1000));  
         return this.getContainerDataByPageID(pageID, containerID);
   
       default:
         //Failed will default here aswell.
+        //At this point, something fatal happened and we need to check the console logs. 
         return null; 
     }
   }
@@ -101,13 +100,15 @@ class ApiService {
       console.log("INFO: API Services is in the process of loading...");
       return "loading";
     } else {
-      console.error("ERROR: API Services failed to start. Please refer to preceding logs for further details.");
+      console.error("ERROR: API Services failed to start. Please refer to the logs for further details.");
       return "failed";
     }
   }
 
   private nullDataLogger(containerNames: string[], containers: any[]) {
     // Check each container for data and log the result
+    // This function is only called when there was a fatal error fetching the container data. 
+    // Either a page was not found in the json object or the container within that page was not found.
     for (let i = 0; i < containers.length; i++) {
       if (containers[i]) {
         console.log(`INFO: Data for ${containerNames[i]} has been successfully located.`);

@@ -1,0 +1,24 @@
+.aboutme-text-wrapper {
+    position: relative;
+    top: 100px;
+    width: 100%;
+    max-width: 800px; 
+}
+
+.title-header-bottom {
+    font-family: 'Unbounded-Black', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    position: relative;
+    color: #E5E5E5;
+}
+
+.description-bottom {
+    font-family: 'Unbounded-Regular', sans-serif;
+    font-size: clamp(12px, 1.2vw, 18px);
+    line-height: 1.6;
+    width: auto;
+    color: #CCCCCC;
+    
+}

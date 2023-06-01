@@ -93,38 +93,55 @@ Here is an example of how to use `useApiService` to fetch data in a component:
 
 ```jsx
 import { useState, useEffect } from 'react';
-import { useApiService } from 'path/to/ApiServiceContext';
+import styles from './styles.module.css';
+import { useApiService } from '../../../utils/ApiServiceContext';
+import { Container } from '../../../utils/ApiDataInterface';
 
-// Define a type for your data
-interface MyData {
-  // ...
-}
+// Define your data location and loading message.
+const dataLocation = { 
+  pageId: 0, 
+  containerId: 5 };
+const loadingString = "Loading...";
 
 const MyComponent = () => {
-  // Create a state variable to store your data
-  const [data, setData] = useState<MyData | null>(null);
-
-  // Get the ApiService instance
+  const [data, setData] = useState<Container | null | undefined>(undefined); 
   const apiService = useApiService();
 
-  // Fetch data once the component has mounted
   useEffect(() => {
     const fetchData = async () => {
-      const result = await apiService.getContainerDataByPageID(0, 5);
-      setData(result);
+      try {
+        const result = await apiService.getContainerDataByPageID(dataLocation.pageId, dataLocation.containerId); 
+        setData(result);
+      } catch (error) {
+        console.error(error);
+      }
     };
-
     fetchData();
   }, [apiService]);
 
-  // Render a loading indicator while the data is being fetched
-  if (!data) return <div>Loading...</div>;
+    //Switch case for the 3 different possible html structures.
+    //Loading, Error Fetching Data, and default (default is success).
+  switch (data) {
+    case (undefined):
+      //You can modify this and add any structure you want.
+      return <div>{loadingString}</div>;
 
-  // Render your component using the fetched data
-  return <div>{/* ... */}</div>;
+    case (null):
+      //You can modify this and add any structure you want.
+      //The APiServiceWorker will fill the logs if we reach this. 
+      return <div>Whoops, there was a fatal error fetching the data.</div>;
+
+    default:
+      return (
+        <div className={`container`}>
+          {data.anything}
+        </div>
+      );
+  }
 };
+
 ```
-This pattern can be used in any component that needs to fetch data using the ApiService. 
+This updated implementation allows components to handle different data states (loading, error, and fetched data) more effectively and concisely.
 
 
 ## `nullDataLogger(containerNames: string[], containers: any[]): void`

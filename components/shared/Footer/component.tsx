@@ -9,6 +9,8 @@ const dataLocation: { pageId: number, containerId: number } = {
   pageId: 0,    
   containerId: 5
 };
+//Set this to change the loading string for the elements within the component.
+const loadingString: string = "Loading...";
 
 export default function Footer() {
   const [data, setData] = useState<Container | null | undefined>(undefined); 
@@ -31,7 +33,7 @@ export default function Footer() {
   //Loading, Error Fetching Data, and default.
   switch (data) {
     case (undefined):
-      return <div>Loading...</div>;
+      return <LoadingFooter/>
 
     case (null):
       return <div>Whoops, there was a fatal error fetching the data.</div>;
@@ -58,3 +60,27 @@ export default function Footer() {
       );
   }
 };;
+
+//This is the loading html struct.  Im sure there is a much cleaner way of doing this but for now we are cheating. 
+function LoadingFooter() {
+  return (
+    <div className={`container`}>
+      <div className={`${styles[`adjustable-aboutme-sub-container`]}`}>
+        <div className={`${styles[`aboutme-text-wrapper2`]}`} id='aboutme-text-wrapper'>
+          <div id="line-top">
+            <h1 className={`${styles[`title-header-bottom2`]} ${styles[`line-top`]}`}>{loadingString} <br /> View my </h1>
+          </div>
+          <div id="line-bottom">
+            <p className={`${styles[`description-bottom2`]} ${styles[`line-bottom`]}`}>
+              Email: {loadingString}
+            </p>
+            <p className={styles[`copywrite-bottom`]}>
+              {loadingString}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};;
+

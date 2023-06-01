@@ -1,0 +1,21 @@
+.marquee {
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+  }
+  
+  .marquee__inner {
+    display: flex;
+    width: 1000px; /* Set a very high width */
+    animation: marquee 30s linear infinite;
+    font-family: 'Unbounded-Black', sans-serif;
+    font-size: 24px;
+
+}
+
+
+  
+@keyframes marquee {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}

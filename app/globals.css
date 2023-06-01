@@ -38,6 +38,14 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+
+  --textGradient: linear-gradient(135deg, #5335cf 0%, #de005e 25%, #f66e48 50%, #de005e 75%, #5335cf 100%);
+  --newGradient: linear-gradient(60deg,
+  blue 0%,   lightblue 9.66%,   darkblue 19.32%,   /* "CREATE." */
+  rgb(228, 106, 0) 38%,  rgb(207, 28, 28) 50%, /* "DESIGN." */
+  rgb(71, 1, 71) 57.72%,  deeppink 100% /* "PROTOTYPE." */
+);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -83,7 +91,14 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  margin-top: 74px;
+  margin-top: 0px;
+  
+
+
+  text-rendering: optimizeLegibility;
+  color: var(--geist-foreground);
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
 }
 
 @font-face {
