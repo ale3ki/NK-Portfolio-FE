@@ -1,21 +1,21 @@
-.marquee {
-    overflow: hidden;
-    position: relative;
-    white-space: nowrap;
-  }
-  
-  .marquee__inner {
-    display: flex;
-    width: 1000px; /* Set a very high width */
-    animation: marquee 30s linear infinite;
-    font-family: 'Unbounded-Black', sans-serif;
-    font-size: 24px;
-
+.dflex {
+  display: flex;
+  width: 1200px;  /* make the flex container twice as wide as the screen */
 }
 
+.marquee {
+  width: auto;  /* each marquee container takes up half the width of the flex container, i.e., the full width of the screen */
+  white-space: pre;
+  animation: marquee 175s linear infinite;
+  font-family: 'Unbounded-Black', sans-serif;
+  font-size: clamp(20px, 1.5vw, 30px);
+}
 
-  
 @keyframes marquee {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-100%, 0); }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }

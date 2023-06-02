@@ -1,21 +1,49 @@
-//This is a cheater implementation for endless scrolling text.
-//This is not endless because we are duping our string 250 times 
-//animating that across the screen slowly. 
-
-//TODO: Fix implementation and make it endless when we have more time.
-
 "use client"
 import styles from './styles.module.css';
+import { useState, useEffect } from 'react';
+import { useApiService } from '../../../utils/ApiServiceContext';
+import { Container } from '../../../utils/ApiDataInterface';
 
+//Set this to change the loading string for the elements within the component.
+const loadingString: string = "Loading...    Loading...    Loading...    Loading...    ";
 
-export default function App() {
-    const text = 'XR DESIGN ✦ 3D DESIGN ✦ UI/UX DESIGN ✦ PRODUCT DESIGN ✦'.repeat(200);
+export default function TextScroll(props: { pageId: number, containerId: number }) {
+    const [data, setData] = useState<Container | null | undefined>(undefined);
+    const [list1, setList1] = useState<string>(Array(5).fill(loadingString).join(''));
+    const [list2, setList2] = useState<string>(Array(5).fill(loadingString).join(''));
+    const { pageId, containerId } = props;
+    const apiService = useApiService();
 
-    return (
-        <div className={styles["marquee"]}>
-            <div className={styles["marquee__inner"]} aria-hidden="true">
-                <span>{text}</span>
-            </div>
-        </div>
-    );
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                //if this data is cached, it will use the cached data instead.  Everything is automated (hopefully).
+                const result = await apiService.getContainerDataByPageID(pageId, containerId);
+                const newText = Array(5).fill(result?.description || 'Error...').join('');
+                setList1(newText);
+                setList2(newText);
+                setData(result);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+    }, [apiService]);
+
+    switch (data) {
+        case (null):
+        return <div>Whoops, there was a fatal error fetching the data.</div>;
+        default:
+            return (
+                <div className={styles.dflex}>
+                    <div className={styles.marquee}>
+                        <p>{list1}</p>
+                    </div>
+                    <div className={styles.marquee}>
+                        <p>{list2}</p>
+                    </div>
+                </div>
+            );
+    }
 }
