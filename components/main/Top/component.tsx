@@ -73,6 +73,8 @@ export default function Top() {
 //Just some messy code below that will get cleaned up. 
 function ButtonBlock(props: { visibleIndex: number, hues: string[] }) {
     const { visibleIndex, hues } = props;
+    const [isHovered, setIsHovered] = useState(false);
+    const textShadowColor = isHovered ? hues[visibleIndex] : 'transparent'; //If hovered, apply current hue, else make transparent
 
     return (
         <div className={`${styles[`buttonBlock`]} d-flex justify-content-center`}>
@@ -82,11 +84,14 @@ function ButtonBlock(props: { visibleIndex: number, hues: string[] }) {
             <button
                 className={`${styles[`projectsButton`]} text-center`}
                 style={{
-                    color: '#000000',
-                    backgroundColor: 'rgb(255, 255, 255)',
-                    border: `2px solid ${hues[visibleIndex]}`,
+                    
                     boxShadow: `0 0 75px ${hues[visibleIndex]}, 0 0 5px ${hues[visibleIndex]}`,
+                    textShadow: isHovered ? `0 0 10px ${textShadowColor}, 0 0 20px ${textShadowColor}, 0 0 30px ${textShadowColor}` : 'none', //If hovered, apply glowing text shadow
+                    color: isHovered ? 'white' : 'black'
+
                 }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
             >
                 Projects
             </button>
