@@ -1,5 +1,5 @@
 .logo-image {
-    max-height: 50px;
+    height: clamp(30px, 40px, 2vw);
     margin-right: 10px;
 }
 

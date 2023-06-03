@@ -1,10 +1,11 @@
 .centeredContainer {
-    min-height: 100vh;
+    height: 100%;
     align-items: center; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 15%;
+    padding-top: 11.5%;
+    padding-bottom: 12.5%;
   }
 
 .title-header-top {
@@ -61,7 +62,7 @@
 }
 
 .projectsButton, .resumeButton{
-    border-radius: 0.5rem;
+    border-radius: .5rem;
     cursor: pointer;
     font-size: calc(.5vw + 10px);
     transition-duration: 0.4s;
@@ -71,7 +72,7 @@
 .logo-image{
     margin-top:2vh;
 
-    margin-bottom: 50px;
+
 }
 
 /*
