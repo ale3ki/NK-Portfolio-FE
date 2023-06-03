@@ -7,11 +7,11 @@ import { Container } from '../../../utils/ApiDataInterface';
 //Set this to change the loading string for the elements within the component.
 const loadingString: string = "Loading...    Loading...    Loading...    Loading...    ";
 
-export default function TextScroll(props: { pageId: number, containerId: number }) {
+export default function TextScroll(props: { pageId: number, containerId: number, bgColor: string, textColor: string }) {
     const [data, setData] = useState<Container | null | undefined>(undefined);
     const [list1, setList1] = useState<string>(Array(5).fill(loadingString).join(''));
     const [list2, setList2] = useState<string>(Array(5).fill(loadingString).join(''));
-    const { pageId, containerId } = props;
+    const { pageId, containerId, bgColor, textColor } = props;
     const apiService = useApiService();
 
     useEffect(() => {
@@ -33,15 +33,21 @@ export default function TextScroll(props: { pageId: number, containerId: number 
 
     switch (data) {
         case (null):
-        return <div>Whoops, there was a fatal error fetching the data.</div>;
+            return <div>Whoops, there was a fatal error fetching the data.</div>;
         default:
             return (
                 <div className={styles.dflex}>
                     <div className={styles.marquee}>
-                        <p>{list1}</p>
+                        <p className={styles.marqP} style={{
+                            background: bgColor,
+                            color: textColor
+                        }}>{list1}</p>
                     </div>
                     <div className={styles.marquee}>
-                        <p>{list2}</p>
+                        <p className={styles.marqP} style={{
+                            background: bgColor,
+                            color: textColor
+                        }}>{list2}</p>
                     </div>
                 </div>
             );

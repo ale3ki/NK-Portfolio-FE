@@ -41,17 +41,17 @@ export default function Top() {
             return <div>Whoops, there was a fatal error fetching the data.</div>;
         case (undefined):
             return (
-                <div className="container">
+                <div className={`${styles[`mainContainer`]} container`}>
                     <h1 className={styles.h1Title}>{ loadingString}</h1>
                     <p className={styles.pDescription}> {loadingString} </p>
                     <div className={`${styles[`carouselBox`]}`}>
                         <Carousel className={styles.carouselBox} interval={null} nextIcon={<NextIcon />} prevIcon={<PrevIcon />} >
                             <Carousel.Item className={styles.carouselItem}>
-                                <div className={`${styles[`myRow`]} row`}>
+                                <div className={`row`}>
                                     {Array.from({ length: 6 }, (_, index) => (
-                                        <div className={`${styles[`myRow`]} col-md-4`} key={index}>
+                                        <div className={`col-md-4`} key={index}>
                                             <Card className={styles.testing}>
-                                                <div className={`${styles["card-image"]} ${styles["placeholder-image"]}`}></div>
+                                            <Card.Img variant="top" src="/portPlaceholder.png" alt={loadingString} className={`${styles[`imgProp`]} img-fluid`} />
                                                 <Card.Body className={styles.cardBody}>
                                                     <Card.Title className={`${styles[`titleBox`]}`}><h1>{loadingString}</h1></Card.Title>
                                                 </Card.Body>
@@ -74,7 +74,7 @@ export default function Top() {
                 }
             }
             return (
-                <div className={`container`}>
+                <div className={`${styles[`mainContainer`]} container`}>
                     <h1 className={styles.h1Title}>{data?.title || loadingString}</h1>
                     <p className={styles.pDescription}> {data?.description || loadingString} </p>
                     <div className={`${styles[`carouselBox`]}`}>
@@ -84,7 +84,7 @@ export default function Top() {
                                     {group.map((row, i) => (
                                         <div className={`row`} key={i}>
                                             {row.map((card, j) => (
-                                                <div className={`${styles[`myRow`]} col-md-4`} key={j}>
+                                                <div className={`col-md-4`} key={j}>
                                                     <Card className={styles.testing}>
                                                         <Card.Img variant="top" src={card.image + data?.blobLinkAppend} alt={loadingString} className={`${styles[`imgProp`]} img-fluid`} />
                                                         <Card.Body className={styles.cardBody}>

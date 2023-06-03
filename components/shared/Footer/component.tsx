@@ -40,8 +40,8 @@ export default function Footer() {
 
     default:
       return (
-        <div className={`container`}>
-          <div className={`${styles[`adjustable-aboutme-sub-container`]}`}>
+        <div className={styles.footerMain}>
+          <div className={`${styles[`adjustable-aboutme-sub-container`]} container`}>
             <div className={`${styles[`aboutme-text-wrapper2`]}`} id='aboutme-text-wrapper'>
               <div id="line-top">
                 <h1 className={`${styles[`title-header-bottom2`]} ${styles[`line-top`]}`}>{data.title} <br /> View my <a href={`${data.resume}${data.blobLinkAppend}`} target="_blank" rel="noopener noreferrer" download className={styles.resumeLink}>resume</a></h1>

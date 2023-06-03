@@ -63,7 +63,7 @@ export default function Top() {
                         <p className={styles[`description`]}>{data?.description || loadingString}</p>
                         <ButtonBlock visibleIndex={visibleIndex} hues={hues} />
                         <p className={styles[`subDescription`]}>{data?.description2 || loadingString}</p>
-                        <img src="/mainProgramsUsed.png" alt="Your Image" className={`${styles['logo-image']} `} />
+                        <img src="/mainProgramsUsed.svg" alt="Your Image" className={`${styles['logo-image']} img-fluid`} />
                     </div>
                 </div>
             );
