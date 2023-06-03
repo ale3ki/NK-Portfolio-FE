@@ -3,19 +3,15 @@ import TopSection from '../components/main/Top/component'
 import AboutMeSection from '../components/main/AboutMe/component'
 import TextScroll from '../components/main/TextScroll/component'
 import MyCarousel from '../components/main/Carousel/component'
-
 import Styles from './page.module.css'
-import { text } from "stream/consumers";
 
 const topScrollColor: string = 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)';
 const textScrollData = [
-  //Data for first textscroll and second.
+  //Data for first and second textscroll.
   { bgColor: 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)', 
   textColor: 'white' },
   { bgColor: 'white', textColor: 'black' }
 ];
-
-
 
 export default function Page() {
   return(
