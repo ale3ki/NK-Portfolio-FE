@@ -5,6 +5,7 @@ import TextScroll from '../components/main/TextScroll/component'
 import MyCarousel from '../components/main/Carousel/component'
 import Styles from './page.module.css'
 
+
 const topScrollColor: string = 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)';
 const textScrollData = [
   //Data for first and second textscroll.

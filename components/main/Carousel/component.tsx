@@ -5,9 +5,7 @@ import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
-
-const NextIcon = () => <h1 className={styles["custom-next"]}>&gt;</h1>;
-const PrevIcon = () => <h1 className={styles["custom-prev"]}>&lt;</h1>;
+import Link from 'next/link';
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
 //In the html structure, just call {data.anything} 
@@ -17,10 +15,40 @@ const dataLocation: { pageId: number, containerId: number } = {
 };
 //Set this to change the loading string for the elements within the component.
 const loadingString: string = "Loading...";
+//Our custom nav buttons because the defaults cant be moved.
+const NextIcon = () => <h1 className={styles["custom-next"]}>&gt;</h1>;
+const PrevIcon = () => <h1 className={styles["custom-prev"]}>&lt;</h1>;
+//The path name corresponds over into the page that will load. 
+//https://nextjs.org/docs/app/api-reference/components/link
+//https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#link-component
+const pathnames = [
+    "/projects",
+    "/projects",
+    "/projects",
+    "/projects",
+    "/projects",
+    "/projects",
+    "/jukebox",
+    "/ntnp",
+    "/ironGiant",
+    "/exhibit",
+    "/villa",
+    "/receiver"
+];
+
+
+
+const navLinks = [
+    { path: '/work', name: 'WORK' },
+    { path: '/about', name: 'ABOUT' },
+    { path: '/contact', name: 'CONTACT' },
+  ];
 
 export default function Top() {
     const [data, setData] = useState<Container | null | undefined>(undefined);
     const apiService = useApiService();
+
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -66,7 +94,8 @@ export default function Top() {
             );
         default:
             const groupedCards = [];
-            let totalItems = 0;
+            let totalItems: number = 0;
+            let carouselNumber: number = 1;
             if (data?.carouselCards) {
                 totalItems = data.carouselCards.length;
                 for (let i = 0; i < totalItems; i += 6) {
@@ -93,15 +122,20 @@ export default function Top() {
                                             {row.map((card, j) => (
                                                 <div className={`col-md-4 d-flex justify-content-center`} key={j}>
                                                     <div style={{ maxWidth: '100%' }}>
-                                                        <Card className={styles.testing}>
-                                                            <Card.Img variant="top" src={card.image + data?.blobLinkAppend} alt={loadingString} className={`${styles[`imgProp`]} img-fluid`} />
-                                                            <Card.Body className={styles.cardBody}>
-                                                                <Card.Title className={`${styles[`titleBox`]}`}>{card.title}</Card.Title>
-                                                                <Card.Subtitle className={`${styles[`subText`]} mb-2 text-muted`}>
-                                                                    {card.description}
-                                                                </Card.Subtitle>
-                                                            </Card.Body>
-                                                        </Card>
+                                                        <Link style={{ textDecoration: 'none' }} href={{
+                                                            pathname: pathnames[carouselNumber - 1],
+                                                            query: {carouselId: carouselNumber++}
+                                                        }}>
+                                                            <Card className={styles.testing} >
+                                                                <Card.Img variant="top" src={card.image + data?.blobLinkAppend} alt={loadingString} className={`${styles[`imgProp`]} img-fluid`} />
+                                                                <Card.Body className={styles.cardBody}>
+                                                                    <Card.Title className={`${styles[`titleBox`]}`}>{card.title}</Card.Title>
+                                                                    <Card.Subtitle className={`${styles[`subText`]} mb-2 text-muted`}>
+                                                                        {card.description}
+                                                                    </Card.Subtitle>
+                                                                </Card.Body>
+                                                            </Card>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             ))}
