@@ -1,0 +1,12 @@
+
+.fullWidth{
+    background-color: black;
+    padding-top: var(--myTopBotMargin);
+    padding-bottom: var(--myTopBotMargin);
+}
+
+.myCol{
+
+    margin-top: 25px;
+
+}

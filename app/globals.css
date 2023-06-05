@@ -46,6 +46,12 @@
   rgb(228, 106, 0) 38%,  rgb(207, 28, 28) 50%, /* "DESIGN." */
   rgb(71, 1, 71) 57.72%,  deeppink 100% /* "PROTOTYPE." */
 );
+
+--myTopBotMargin: 74px;
+
+
+
+
 }
 
 @media (prefers-color-scheme: dark) {
