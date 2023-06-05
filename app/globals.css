@@ -49,6 +49,9 @@
 
 --myTopBotMargin: 74px;
 
+--h2DynoTexo: clamp(1rem, 4vw, 2rem);
+--pDynoTexo: clamp(0.5rem, 2vw, 1rem);
+
 
 
 

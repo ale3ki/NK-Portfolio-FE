@@ -10,6 +10,12 @@ import ProcessSection from '../../components/projects/Process/component'
 import ReasearchSection from '../../components/projects/Research/component'
 import PersonaSection from '../../components/projects/Personas/component'
 import FlowSection from '../../components/projects/Flow/component'
+import CarouselSection from '../../components/main/Carousel/component'
+import GuideSection from '../../components/projects/Guide/component'
+import TestingSection from '../../components/projects/Testing/component'
+import PrototypeSection from '../../components/projects/Prototype/component'
+import AdMockUpSection from '../../components/projects/Advertisement/component'
+import DemoVideoSection from '../../components/projects/Video/component'
 
 
 
@@ -22,12 +28,6 @@ export default function ProjectPage() {
 
   console.log(carouselID);
 
-  // Now you can use carouselID in your component.
-
-
-
-
-
 
   return (
     <main>
@@ -37,6 +37,12 @@ export default function ProjectPage() {
       <ReasearchSection pageId={carouselNum}/>
       <PersonaSection pageId={carouselNum}/>
       <FlowSection pageId={carouselNum}/>
+      <CarouselSection pageId={carouselNum} containerId={6}/>
+      <GuideSection pageId={carouselNum}/>
+      <TestingSection pageId={carouselNum}/>
+      <PrototypeSection pageId={carouselNum}/>
+      <AdMockUpSection pageId={carouselNum}/>
+      <DemoVideoSection pageId={carouselNum}/>
     </main>
   )
 }

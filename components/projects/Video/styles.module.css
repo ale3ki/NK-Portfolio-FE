@@ -1,0 +1,20 @@
+.demoVideoMain{
+
+    padding-top: var(--myTopBotMargin);
+    padding-bottom: var(--myTopBotMargin);
+ 
+
+}
+
+.videoMain{
+
+    width: auto;
+    max-height: 100vh;
+    
+}
+
+.mainTitle{
+
+    padding-bottom: var(--myTopBotMargin);
+}
+

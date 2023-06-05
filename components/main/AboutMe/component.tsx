@@ -38,9 +38,9 @@ export default function AboutMe() {
     default:
       return (
         
-        <div className={styles.aboutMeMainContainer}>
+        <div className={styles.aboutMeMain}>
           <div className={`container`}>
-            <h1 className={styles['title-header-bottom']}>{data?.title || loadingString}</h1>
+            <h2 className={styles['title-header-bottom']}>{data?.title || loadingString}</h2>
             <p className={styles['description-bottom']}>
               {data?.description || loadingString}
             </p>

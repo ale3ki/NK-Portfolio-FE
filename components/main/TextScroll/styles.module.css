@@ -1,8 +1,6 @@
 .dflex {
   display: flex;
   width: 1200px; 
-  margin-bottom: 0px;
-
 }
 
 .marquee {
@@ -11,7 +9,6 @@
   animation: marquee 175s linear infinite;
   font-family: 'Unbounded-Black', sans-serif;
   font-size: clamp(20px, 1.5vw, 30px);
-  margin-bottom: 0px !important;
   background: white;
 }
 
@@ -22,12 +19,10 @@
   100% {
     transform: translateX(-100%);
   }
-}
 
+}
 .marqP{
-  margin-bottom: 0px !important;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  margin: 0;
   color: white;
 }
 
