@@ -31,18 +31,18 @@ export default function ProjectPage() {
 
   return (
     <main>
-      <LandingTop pageId={carouselNum}/>
+      <LandingTop pageId={carouselNum} backgroundColor={"#ffffff"}/>
       <ProjectSection pageId={carouselNum}/>
       <ProcessSection pageId={carouselNum}/>
       <ReasearchSection pageId={carouselNum}/>
       <PersonaSection pageId={carouselNum}/>
       <FlowSection pageId={carouselNum}/>
-      <CarouselSection pageId={carouselNum} containerId={6}/>
+      <CarouselSection pageId={carouselNum} containerId={6} loadingString={"Loading..."}/>
       <GuideSection pageId={carouselNum}/>
       <TestingSection pageId={carouselNum}/>
       <PrototypeSection pageId={carouselNum}/>
       <AdMockUpSection pageId={carouselNum}/>
-      <DemoVideoSection pageId={carouselNum}/>
+      <DemoVideoSection pageId={carouselNum} containerId={11}/>
     </main>
   )
 }

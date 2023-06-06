@@ -5,17 +5,17 @@ import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
-const dataLocation: {containerId: number } = {
-   
+const dataLocation: { containerId: number } = {
+
     containerId: 0
 };
 //Set this to change the loading string for the elements within the component.
 const loadingString: string = "Loading...";
 
-export default function Landing(props: {pageId: number}) {
+export default function Landing(props: { pageId: number, backgroundColor: string }) {
     const [data, setData] = useState<Container | null | undefined>(undefined);
     const apiService = useApiService();
-    const {pageId} = props;
+    const { pageId, backgroundColor } = props;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -38,17 +38,15 @@ export default function Landing(props: {pageId: number}) {
 
         default:
             return (
-                <div className={`${styles[`landingMain`]} container`}>
-                    <h1 className={`${styles[`header`]} text-center`}> {data?.title || loadingString}</h1>
-                    <p className='text-center'>{data?.description || loadingString}</p>
-                    <img className={`${styles.landingImg} img-fluid`} src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found"/>
-
-                 
-
-
-                
+                <div className={`${styles[`landingMain`]}`} style={{
+                    backgroundColor: backgroundColor
+                }}>
+                    <div className='container'>
+                        <h1 className={`${styles[`header`]} text-center`}> {data?.title || loadingString}</h1>
+                        <p className='text-center'>{data?.description || loadingString}</p>
+                        <img className={`${styles.landingImg} img-fluid`} src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found" />
+                    </div>
                 </div>
-
             );
     }
 };;

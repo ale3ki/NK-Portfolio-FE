@@ -5,21 +5,19 @@ import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
-const dataLocation: { containerId: number } = {
-    containerId: 11
-};
+
 //Set this to change the loading string for the elements within the component.
 const loadingString: string = "Loading...";
 
-export default function DemoVideo(props: { pageId: number }) {
+export default function DemoVideo(props: { pageId: number , containerId: number}) {
     const [data, setData] = useState<Container | null | undefined>(undefined);
     const apiService = useApiService();
-    const { pageId } = props;
+    const { pageId, containerId } = props;
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await apiService.getContainerDataByPageID(pageId, dataLocation.containerId);
+                const result = await apiService.getContainerDataByPageID(pageId, containerId);
                 setData(result);
             } catch (error) {
                 console.error(error);

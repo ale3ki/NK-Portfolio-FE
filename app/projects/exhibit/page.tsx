@@ -1,17 +1,16 @@
+'use client'
+import React from "react";
+import MyCarousel from '../../../components/main/Carousel/component'
+import LandingTop from '../../../components/projects/Landing/component'
 
-export default function Home() {
+const pageId: number = 10;
 
-    // fetch(`http://localhost:5085/PageData/0`)
-    // .then(response => response.json())
-    // .then(data => console.log(data))
-    // .catch((error) => console.error('Error:', error));
-  
-    return (
-      <main className='main'>
-  
-        
-        
-      </main>
-    )
-  }
-  
+export default function ProjectPage() {
+
+  return (
+    <main>
+      <LandingTop pageId={pageId} backgroundColor={"#e4e4e4"}/>
+      <MyCarousel pageId={pageId} containerId={1} loadingString={""}/>
+    </main>
+  )
+}

@@ -9,9 +9,6 @@ import Carousel from 'react-bootstrap/Carousel';
 import Link from 'next/link';
 import { LinkOptions } from '../../../utils/types/interface';
 
-
-//Set this to change the loading string for the elements within the component.
-const loadingString: string = "Loading...";
 //Our custom nav buttons because the defaults cant be moved.
 const NextIcon = () => <h1 className={styles["custom-next"]}>&gt;</h1>;
 const PrevIcon = () => <h1 className={styles["custom-prev"]}>&lt;</h1>;
@@ -23,10 +20,10 @@ const PrevIcon = () => <h1 className={styles["custom-prev"]}>&lt;</h1>;
 
 
 
-export default function DynoCaro(props: {pageId: number, containerId: number, linkOptions?: LinkOptions}) {
+export default function DynoCaro(props: {pageId: number, containerId: number, loadingString: string, linkOptions?: LinkOptions}) {
     const [data, setData] = useState<Container | null | undefined>(undefined);
     const apiService = useApiService();
-    const {pageId, containerId, linkOptions} = props;
+    const {pageId, containerId, linkOptions, loadingString} = props;
 
     useEffect(() => {
         const fetchData = async () => {

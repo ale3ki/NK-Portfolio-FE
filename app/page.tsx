@@ -24,12 +24,12 @@ let myLinkOptions: LinkOptions = {
   "/projects",
   "/projects",
   "/projects",
-  "/jukebox",
-  "/ntnp",
-  "/ironGiant",
-  "/exhibit",
-  "/villa",
-  "/receiver"]
+  "/projects/jukebox",
+  "/projects/ntnp",
+  "/projects/ironGiant",
+  "/projects/exhibit",
+  "/projects/villa",
+  "/projects/receiver"]
 }
 
 export default function Page() {
@@ -37,7 +37,7 @@ export default function Page() {
     <main className={Styles[`navMargin`]}>
       <TopSection/>
       <TextScroll pageId={0} containerId={1} bgColor={textScrollData[0].bgColor} textColor={textScrollData[0].textColor} paddingTop={20} paddingBottom={20}/>
-      <MyCarousel pageId={0} containerId={2} linkOptions={myLinkOptions}/>
+      <MyCarousel pageId={0} containerId={2} linkOptions={myLinkOptions} loadingString={"Loading..."}/>
       <AboutMeSection/>
       <TextScroll pageId={0} containerId={4} bgColor={textScrollData[1].bgColor} textColor={textScrollData[1].textColor} paddingTop={0} paddingBottom={0}/>
     </main>

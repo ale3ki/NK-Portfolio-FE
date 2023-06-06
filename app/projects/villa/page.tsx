@@ -1,12 +1,19 @@
+'use client'
+import React from "react";
+import Styles from './page.module.css'
+import MyCarousel from '../../../components/main/Carousel/component'
+import LandingTop from '../../../components/projects/Landing/component'
 
-export default function Home() {
 
-    return (
-      <main className='main'>
-  
-        
-        
-      </main>
-    )
-  }
-  
+const pageId: number = 11;
+
+export default function ProjectPage() {
+
+  return (
+    <main>
+      <LandingTop pageId={pageId} backgroundColor={"#e4e4e4"}/>
+      <MyCarousel pageId={pageId} containerId={1} loadingString={""}/>
+
+    </main>
+  )
+}
