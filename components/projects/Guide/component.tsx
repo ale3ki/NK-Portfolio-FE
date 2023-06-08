@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
+import { Fade, Slide } from 'react-awesome-reveal';
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
 const dataLocation: { containerId: number } = {
@@ -38,12 +39,18 @@ export default function Guide(props: { pageId: number }) {
         default:
             return (
                 <div className={` ${styles[`guideMain`]} container`}>
+                    <Fade triggerOnce direction="up" fraction={0.1}>
                         <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
-                        <div className={`${styles[`myCol`]} col-7`}>
-                            <p>{data?.description || loadingString}</p>
-                        </div>
+                    </Fade>
+                    <div className={`${styles[`myCol`]} col-7`}>
+                        <Fade delay={500} triggerOnce>
+                        <p>{data?.description || loadingString}</p>
+                        </Fade>
+                    </div>
+                    <Slide triggerOnce direction="right" fraction={0.2}>
                         <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found"/>
+                    </Slide>
                 </div>
             );
     }
-};;
+};

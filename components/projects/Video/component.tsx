@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
+import { Fade } from 'react-awesome-reveal';
 
-//Set pageId and containerId to pull the appropriate data.  Easy peazy.
+//Set pageId and containerId to pull the appropriate data.
 
 //Set this to change the loading string for the elements within the component.
 const loadingString: string = "Loading...";
@@ -36,9 +37,11 @@ export default function DemoVideo(props: { pageId: number , containerId: number}
         default:
             return (
                 <div className={` ${styles[`demoVideoMain`]} container`}>
+                    <Fade direction="down" triggerOnce>
                         <h1 className={styles.mainTitle}>Demo Video</h1>
-                        <video  className={` ${styles[`videoMain`]} img-fluid mx-auto d-block`} src={data?.video! + data?.blobLinkAppend! || loadingString}/>
+                    </Fade>
+                    <video  className={` ${styles[`videoMain`]} img-fluid mx-auto d-block`} src={data?.video! + data?.blobLinkAppend! || loadingString}/>
                 </div>
             );
     }
-};;
+};

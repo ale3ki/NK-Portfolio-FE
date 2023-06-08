@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
+import { Fade } from "react-awesome-reveal";
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
 const dataLocation: { containerId: number } = {
@@ -38,9 +39,14 @@ export default function Project(props: { pageId: number }) {
 
     default:
       return (
+        
         <div className={`${styles[`mainProcess`]} container`}>
+          <Fade direction="down" triggerOnce>
             <h1>{data?.title || loadingString}</h1>
+            </Fade>
+            <Fade direction="left" triggerOnce>
             <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Could Not Find Image"/>
+            </Fade>
         </div>
       );
   }

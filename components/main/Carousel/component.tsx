@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
 import Link from 'next/link';
 import { LinkOptions } from '../../../utils/types/interface';
+import { Fade } from 'react-awesome-reveal';
 
 //Our custom nav buttons because the defaults cant be moved.
 const NextIcon = () => <h1 className={styles["custom-next"]}>&gt;</h1>;
@@ -85,8 +86,12 @@ export default function DynoCaro(props: {pageId: number, containerId: number, lo
             
                 return (
                     <div className={`${styles[`mainContainer`]} container`}>
-                        <h1 className={styles.h1Title}>{data?.title || loadingString}</h1>
+                        <Fade direction="down" triggerOnce>
+                            <h1 className={styles.h1Title}>{data?.title || loadingString}</h1>
+                        </Fade>
+                        <Fade delay={250} triggerOnce>
                         <p className={styles.pDescription}> {data?.description || loadingString} </p>
+                        </Fade>
                         <div className={`${styles[`carouselBox`]}`}>
                             <Carousel
                                 className={styles.carouselBox}

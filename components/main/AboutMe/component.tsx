@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
+import { Fade } from 'react-awesome-reveal';
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
 const dataLocation: { pageId: number, containerId: number } = {
@@ -35,20 +36,25 @@ export default function AboutMe() {
     case (null):
       return <div>Whoops, there was a fatal error fetching the data.</div>;
 
-    default:
-      return (
-        
-        <div className={styles.aboutMeMain}>
-          <div className={`container`}>
-            <h2 className={styles['title-header-bottom']}>{data?.title || loadingString}</h2>
-            <p className={styles['description-bottom']}>
-              {data?.description || loadingString}
-            </p>
-            <p className={styles['description-bottom']}>
-              {data?.description2 || loadingString}
-            </p>
+      default:
+        return (
+          <div className={styles.aboutMeMain}>
+            <div className={`container`}>
+              <Fade triggerOnce>
+                <h2 className={styles['title-header-bottom']}>{data?.title || loadingString}</h2>
+              </Fade>
+              <Fade triggerOnce>
+                <p className={styles['description-bottom']}>
+                  {data?.description || loadingString}
+                </p>
+              </Fade>
+              <Fade triggerOnce>
+                <p className={styles['description-bottom']}>
+                  {data?.description2 || loadingString}
+                </p>
+              </Fade>
+            </div>
           </div>
-        </div>
-      );
-  }
-};;
+        );
+    }
+  };

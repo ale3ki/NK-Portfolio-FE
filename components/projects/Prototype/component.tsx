@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
+import { Fade, Zoom } from 'react-awesome-reveal';
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
 const dataLocation: { containerId: number } = {
@@ -35,13 +36,19 @@ export default function Prototype(props: { pageId: number }) {
         case (null):
             return <div>Whoops, there was a fatal error fetching the data.</div>;
 
-        default:
-            return (
-                <div className={` ${styles[`prototypeMain`]} container`}>
-                        <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
-                        
-                        <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found"/>
-                </div>
-            );
-    }
+            default:
+                return (
+                    <div className={` ${styles[`prototypeMain`]} container`}>
+                        <Fade direction="down" triggerOnce>
+                            <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
+                        </Fade>
+                        <Fade triggerOnce>
+                            <p>{data?.description}</p>
+                        </Fade>
+                        <Zoom duration={500} triggerOnce>
+                            <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found"/>
+                        </Zoom>
+                    </div>
+                );
+        }
 };;

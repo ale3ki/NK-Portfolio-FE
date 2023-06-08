@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
+import { Fade, Slide } from 'react-awesome-reveal';
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
 const dataLocation: { containerId: number } = {
@@ -39,12 +40,18 @@ export default function Flow(props: { pageId: number }) {
         default:
             return (
                 <div className={` ${styles[`flowMain`]} container`}>
+                    <Fade direction="down" triggerOnce>
                         <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
+                    </Fade>
+                    <Fade delay={500} triggerOnce>
                         <div className={`${styles[`myCol`]} col-12 col-lg-8`}>
                             <p>{data?.description || loadingString}</p>
                         </div>
+                    </Fade>
+                    <Slide direction="up" triggerOnce>
                         <img className='img-fluid mx-auto d-block' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found"/>
+                    </Slide>
                 </div>
             );
     }
-};;
+};

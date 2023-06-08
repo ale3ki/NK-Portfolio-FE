@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
+import { Fade, Slide } from 'react-awesome-reveal';
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
 const dataLocation: { containerId: number } = {
@@ -38,12 +39,18 @@ export default function Iterations(props: { pageId: number }) {
         default:
             return (
                 <div className={` ${styles[`iterationsMain`]} container`}>
+                    <Fade direction="down" triggerOnce>
                         <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
-                        <div className={`${styles[`myCol`]} col-7`}>
+                    </Fade>
+                    <div className={`${styles[`myCol`]} col-7`}>
+                        <Fade triggerOnce>
                             <p>{data?.description || loadingString}</p>
-                        </div>
+                        </Fade>
+                    </div>
+                    <Slide triggerOnce>
                         <img className='img-fluid mx-auto d-block' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found"/>
+                    </Slide>
                 </div>
             );
     }
-};;
+};

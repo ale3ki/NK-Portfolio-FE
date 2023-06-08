@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
+import { Fade, Slide } from 'react-awesome-reveal';
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
 const dataLocation: { containerId: number } = {
@@ -37,14 +38,21 @@ export default function Personas(props: { pageId: number }) {
             return <div>Whoops, there was a fatal error fetching the data.</div>;
 
         default:
+
             return (
                 <div className={` ${styles[`personasMain`]} container`}>
+                    <Fade direction="down" triggerOnce>
                         <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
-                        <div className={`${styles[`myCol`]} col-7`}>
+                    </Fade>
+                    <div className={`${styles[`myCol`]} col-7`}>
+                        <Fade delay={500} triggerOnce>
                             <p>{data?.description || loadingString}</p>
-                        </div>
-                        <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found"/>
+                        </Fade>
+                    </div>
+                    <Slide direction="right" triggerOnce>
+                        <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found" />
+                    </Slide>
                 </div>
             );
     }
-};;
+};
