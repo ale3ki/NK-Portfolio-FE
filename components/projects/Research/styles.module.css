@@ -8,5 +8,9 @@
 .myCol{
 
     margin-top: 25px;
+}
 
+.myH2{
+
+    font-size: var(--h2DynoTexo) !important;
 }

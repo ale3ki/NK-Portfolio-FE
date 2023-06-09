@@ -47,7 +47,7 @@ export default function Research(props: { pageId: number }) {
                         </Fade>
                             <div className={`${styles[`myCol`]} col-12 col-md-6`}>
                             <Fade direction="down" triggerOnce>
-                                <h2>{data?.title2 || loadingString}</h2>
+                                <h2 className={styles.myH2}>{data?.title2 || loadingString}</h2>
                                 </Fade>
                                 <Fade delay={500} triggerOnce>
                                 <p dangerouslySetInnerHTML={{__html: data?.description || loadingString}} />
@@ -55,7 +55,7 @@ export default function Research(props: { pageId: number }) {
                             </div>
                             <div className={`${styles[`myCol`]} col-12 col-md-6`}>
                             <Fade direction="down" triggerOnce>
-                                <h2>{data?.title3 || loadingString}</h2>
+                                <h2 className={styles.myH2}>{data?.title3 || loadingString}</h2>
                                 </Fade>
                                 <Fade delay={500} triggerOnce>
                                 <p dangerouslySetInnerHTML={{__html: data?.description2 || loadingString}} />
@@ -66,4 +66,4 @@ export default function Research(props: { pageId: number }) {
                 </div>
             );
     }
-};;
+};

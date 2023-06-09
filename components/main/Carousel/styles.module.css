@@ -1,24 +1,14 @@
 .h1Title{
 
-    font-family: 'Unbounded-Black', sans-serif;
-    font-size:  var(--h2DynoTexo);
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size:  var(--h1DynoTexo);
     position: relative;
-    color: #111111;
-
 }
 
 
 .pDescription{
-
-    font-family: 'Unbounded-Regular', sans-serif;
-    font-size: clamp(14px, 1.2vw, 18px);
+    font-size: var(--pDynoTexo);
     line-height: 1.6;
-    width: auto;
     color: #060606;
-
-
 }
 
 .custom-next,
@@ -34,6 +24,7 @@
   pointer-events: all;
   z-index: 5;
   margin-top: -35px;
+  font-family: 'Unbounded-Medium', sans-serif;
 }
 
 .testing {

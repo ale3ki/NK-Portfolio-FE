@@ -10,7 +10,7 @@
 
 .title-header-top {
     font-family: 'Unbounded-Black', sans-serif;
-    font-size: clamp(20px, 3vw, 60px);
+    font-size: clamp(20px, 3vw, 60px) !important;
  
 
     position: relative;
@@ -78,7 +78,7 @@
     background: rgba(51, 48, 48);
     left: 0;
     top: 0;
-    z-index: -1; /* This places the background below the glowing effect */
+    z-index: -1; 
     border-radius: .5rem; 
 }
 
@@ -118,9 +118,7 @@
 
 .logo-image{
     margin-top:2vh;
-    width: auto;
-
-
+    
 }
 
 /*
@@ -147,5 +145,5 @@ Changing color text
     position: relative;
     color: black;
     transition: opacity 1s;
-    font-size: clamp(20px, 3vw, 60px)
+    font-size: clamp(20px, 3vw, 60px) !important;
   }

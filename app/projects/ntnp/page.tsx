@@ -1,6 +1,5 @@
 'use client'
 import React from "react";
-import Styles from './page.module.css'
 import MyCarousel from '../../../components/main/Carousel/component'
 import LandingTop from '../../../components/projects/Landing/component'
 import VideoSection from '../../../components/projects/Video/component'

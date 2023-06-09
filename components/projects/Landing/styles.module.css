@@ -1,9 +1,36 @@
 .landingMain {
-
     padding-top: 74px;
     background-color: #ffffff;
     height: 100vh;
-    
 
 }
 
+@media (max-width: 760px) {
+
+    .landingMain{
+
+        height:75vh;
+    }
+}
+
+@media (max-width: 540px){
+    .landingMain{
+
+        height:50vh;
+    }
+
+}
+
+.holder{
+
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center; /* vertically center */
+    flex-direction: column; /* stacks items vertically */
+    height: 100%;
+
+}
+
+.landingMain{
+    
+}

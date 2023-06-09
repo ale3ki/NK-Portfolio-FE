@@ -48,11 +48,9 @@
 );
 
 --myTopBotMargin: 74px;
-
+--h1DynoTexo: clamp(1.25rem, 5vw, 2.5rem);
 --h2DynoTexo: clamp(1rem, 4vw, 2rem);
---pDynoTexo: clamp(0.5rem, 2vw, 1rem);
-
-
+--pDynoTexo: clamp(0.75rem, 2vw, 1rem);
 
 
 }
@@ -101,15 +99,27 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   margin-top: 0px;
-
-  
-  
-
-
   text-rendering: optimizeLegibility;
   color: var(--geist-foreground);
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
+}
+
+h1, h2 {
+  font-family: 'Unbounded-Black';
+}
+
+h1 {
+  font-size: var(--h1DynoTexo);
+}
+
+h2 {
+  font-size: var(--h2DynoTexo);
+}
+
+p {
+  font-family: 'Unbounded-Regular';
+  font-size: var(--pDynoTexo);
 }
 
 @font-face {

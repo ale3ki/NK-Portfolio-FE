@@ -46,7 +46,7 @@ export default function DynoCaro(props: {pageId: number, containerId: number, lo
         case (undefined):
             return (
                 <div className={`${styles[`mainContainer`]} container`}>
-                    <h1 className={styles.h1Title}>{loadingString}</h1>
+                    <h1 className={`${styles.h1Title}`}>{loadingString}</h1>
                     <p className={styles.pDescription}> {loadingString} </p>
                     <div className={`${styles[`carouselBox`]}`}>
                         <Carousel className={styles.carouselBox} interval={null} nextIcon={<NextIcon />} prevIcon={<PrevIcon />} >
@@ -90,7 +90,7 @@ export default function DynoCaro(props: {pageId: number, containerId: number, lo
                             <h1 className={styles.h1Title}>{data?.title || loadingString}</h1>
                         </Fade>
                         <Fade delay={250} triggerOnce>
-                        <p className={styles.pDescription}> {data?.description || loadingString} </p>
+                        <p className={`${styles.pDescription} col-12 col-lg-8`}> {data?.description || loadingString} </p>
                         </Fade>
                         <div className={`${styles[`carouselBox`]}`}>
                             <Carousel

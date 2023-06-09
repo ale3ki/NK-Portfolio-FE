@@ -42,7 +42,7 @@ export default function Iterations(props: { pageId: number }) {
                     <Fade direction="down" triggerOnce>
                         <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
                     </Fade>
-                    <div className={`${styles[`myCol`]} col-7`}>
+                    <div className={`${styles[`myCol`]} col-12 col-lg-8`}>
                         <Fade triggerOnce>
                             <p>{data?.description || loadingString}</p>
                         </Fade>

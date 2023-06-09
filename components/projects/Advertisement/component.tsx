@@ -43,7 +43,7 @@ export default function MockUp(props: { pageId: number }) {
                         <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
                     </Fade>
                     <Fade triggerOnce>
-                        <div className={`${styles[`myCol`]} col-7`}>
+                        <div className={`${styles[`myCol`]} col-12 col-lg-8`}>
                             <p>{data?.description || loadingString}</p>
                         </div>
                     </Fade>

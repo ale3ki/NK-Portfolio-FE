@@ -51,4 +51,4 @@ export default function Prototype(props: { pageId: number }) {
                     </div>
                 );
         }
-};;
+};

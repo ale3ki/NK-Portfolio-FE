@@ -2,86 +2,52 @@
     position: relative;
     padding-top: 74px;
     background-color: #000000;
-    height: calc(400px + 10vw);
+    height: 100%;
+   
     min-height: 525px;
+    
 }
 
-.myBtmRightImg {
-    position: absolute;
-    top: 19vh;
-    right: 0;
-    width: 37vw; 
-    margin-bottom: -125px;
-}
-
-@media (max-width: 766px) {
-    .myBtmRightImg {
-        display: none; 
-    }
-    .fme {
-        max-width: 100vw !important;
-    }
+.titleHeader{
+    padding: 0;
 }
 
 .myBtmLeftImg {
     margin-left: calc(-15vw - 20px);
+    
 }
 
-.fme {
-    max-width: calc(100vw * .5833333);
+
+.myBtmRightImg {
+    position: relative !important;
+    width: 100% !important;
 }
 
-@media (min-width: 85px) {
-    .projectMain {
-        height: calc(500px + 10vw);
+
+.progsUsed {
+    position: relative; 
+    bottom: 27.5px;
+    margin-top: .5rem;
+}
+
+.firstCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mySecondCol {
+
+    margin-right: -10px;
+}
+
+@media (max-width: 991px) {
+    .myBtmRightImg {
+        display: none; 
     }
-}
 
-@media (min-width: 1300px) {
-    .projectMain {
-        height: calc(600px + 10vw);
-    }
-}
-
-@media (min-width: 1700px) {
-    .projectMain {
-        height: calc(700px + 10vw);
-    }
-}
-
-.firstDescription {
-    margin-top: 4vw;
-}
-.progsUsed{
-    margin-top: 15vw;
-}
-
-
-@media (max-width: 1742px) {
-    .progsUsed{
-        margin-top: 13vw;
-    } 
-}
-
-@media (max-width: 1550px) {
-    .progsUsed{
-        margin-top: 11vw;
-    }
-}
-@media (max-width: 1500px) {
-    .progsUsed{
-        margin-top: 9vw;
-    } 
-}
-
-@media (max-width: 1250px) {
-    .progsUsed{
-        margin-top: 7vw;
-    } 
-}
-
-@media (max-width: 1000px) {
-    .progsUsed{
-        margin-top: 5vw;
+    .progsUsed {
+        margin-top: 50px;
+    
     }
 }

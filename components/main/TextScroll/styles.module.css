@@ -7,8 +7,8 @@
   width: auto;  /* each marquee container takes up half the width of the flex container, i.e., the full width of the screen */
   white-space: pre;
   animation: marquee 175s linear infinite;
-  font-family: 'Unbounded-Black', sans-serif;
-  font-size: clamp(20px, 1.5vw, 30px);
+  
+  
   background: white;
 }
 
@@ -24,6 +24,8 @@
 .marqP{
   margin: 0;
   color: white;
+  font-size: clamp(20px, 1.5vw, 30px) !important;
+  font-family: 'Unbounded-Black', sans-serif !important;
 }
 
 

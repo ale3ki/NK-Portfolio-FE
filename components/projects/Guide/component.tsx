@@ -42,7 +42,7 @@ export default function Guide(props: { pageId: number }) {
                     <Fade triggerOnce direction="up" fraction={0.1}>
                         <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
                     </Fade>
-                    <div className={`${styles[`myCol`]} col-7`}>
+                    <div className={`${styles[`myCol`]} col-12 col-lg-8`}>
                         <Fade delay={500} triggerOnce>
                         <p>{data?.description || loadingString}</p>
                         </Fade>

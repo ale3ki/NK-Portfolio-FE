@@ -24,9 +24,6 @@ export default function ProjectPage() {
   const searchParams = useSearchParams();
   const carouselID = searchParams.get('carouselId');
   const carouselNum: number = Number(carouselID);
-  
-
-  console.log(carouselID);
 
 
   return (

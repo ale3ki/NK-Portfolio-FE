@@ -68,7 +68,7 @@ export default function Top() {
                 </div>
             );
     }
-};;
+};
 
 //Just some messy code below that will get cleaned up. 
 function ButtonBlock(props: { visibleIndex: number, hues: string[] }) {
