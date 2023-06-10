@@ -6,7 +6,7 @@
 .nav-link {
   color: #474747 !important;
   font-family: 'Unbounded-Regular', sans-serif;
-  margin-left: 5vw;
+  margin-left: 2vw;
 
 
 }
@@ -77,4 +77,129 @@ button.accept-policy {
     left: 0;
     right: 0;
     z-index: 1030; /* To keep the navbar on top of other elements */
+
+}
+
+.resumeLink {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 25px;
+  background: linear-gradient(to right, #57DDFF, #0077cc); /* Gradient from light blue to darker blue */
+  position: relative;
+  right: 0;
+  white-space: nowrap;
+  margin-right: 10px;
+  box-shadow: 5px 5px 10px #818181;
+  border-radius: .5rem;
+  font-size: clamp(15px, 1.5vw, 20px);
+  font-family: 'Unbounded-Regular', sans-serif;
+  margin-left: 2vw;
+}
+
+.resumeLink:hover{
+
+  color: white;
+
+
+}
+
+
+.resumeLink::before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  background-size: 400%;
+  position: absolute;
+  top: -2px;  
+  left: -2px;  
+  bottom: -2px; 
+  right: -2px;  
+  z-index: -2; 
+  filter: blur(5px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: .5rem; 
+  
+}
+
+.resumeLink::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(51, 48, 48);
+  left: 0;
+  top: 0;
+  z-index: -1; 
+  border-radius: .5rem; 
+}
+
+.resumeLink:hover::before {
+  opacity: 1;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+
+
+
+
+
+
+@media (max-width: 1100px) {
+
+  .nav-link {
+    margin-left: 2.5vw;
+  
+  }
+
+  .resumeLink {
+    padding: 7px 22.5px;
+ 
+  }
+
+  .resumeLinkDummy {
+    padding: 7px 22.5px;
+ 
+  }
+}
+
+@media (max-width: 850px) {
+
+  .resumeLink {
+    padding: 5px 15px;
+ 
+  }
+
+  .resumeLinkDummy {
+    padding: 5px 15px;
+ 
+  }
+
+  
+
+
+}
+
+@media (max-width: 600px) {
+
+  .resumeLink {
+    padding: 9px 24px;
+  
+  }
+
+  .text{
+
+    display: none;
+
+
+  }
+ 
+  
+
+
 }

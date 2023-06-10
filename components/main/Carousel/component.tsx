@@ -49,7 +49,7 @@ export default function DynoCaro(props: {pageId: number, containerId: number, lo
                     <h1 className={`${styles.h1Title}`}>{loadingString}</h1>
                     <p className={styles.pDescription}> {loadingString} </p>
                     <div className={`${styles[`carouselBox`]}`}>
-                        <Carousel className={styles.carouselBox} interval={null} nextIcon={<NextIcon />} prevIcon={<PrevIcon />} >
+                        <Carousel id="dynoCaro" className={styles.carouselBox} interval={null} nextIcon={<NextIcon />} prevIcon={<PrevIcon />} >
                             <Carousel.Item className={styles.carouselItem}>
                                 <div className={`row`}>
                                     {Array.from({ length: 6 }, (_, index) => (
@@ -92,15 +92,16 @@ export default function DynoCaro(props: {pageId: number, containerId: number, lo
                         <Fade delay={250} triggerOnce>
                         <p className={`${styles.pDescription} col-12 col-lg-8`}> {data?.description || loadingString} </p>
                         </Fade>
-                        <div className={`${styles[`carouselBox`]}`}>
+                        <div  className={`${styles[`carouselBox`]}`}>
                             <Carousel
+                                
                                 className={styles.carouselBox}
                                 interval={null}
                                 nextIcon={totalItems > 6 ? <NextIcon /> : null}
                                 prevIcon={totalItems > 6 ? <PrevIcon /> : null}
                             >
                                 {groupedCards.map((group, index) => (
-                                    <Carousel.Item key={index} className={styles.carouselItem}>
+                                    <Carousel.Item id="dynoCaro" key={index} className={styles.carouselItem}>
                                         {group.map((row, i) => (
                                             <div className={`row ${row.length < 3 ? 'justify-content-md-center' : ''}`} key={i}>
                                                 {row.map((card, j) => (

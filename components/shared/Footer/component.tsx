@@ -33,26 +33,23 @@ export default function Footer() {
   //Switch case for the 3 different possible html structures.
   //Loading, Error Fetching Data, and default.
   switch (data) {
-    case (undefined):
-      return <LoadingFooter/>
-
     case (null):
       return <div>Whoops, there was a fatal error fetching the data.</div>;
-
+    
     default:
       return (
-        <div className={styles.footerMain}>
+        <div id="footer" className={styles.footerMain}>
           <div className={`${styles[`adjustable-aboutme-sub-container`]} container`}>
             <div className={`${styles[`aboutme-text-wrapper2`]}`} id='aboutme-text-wrapper'>
               <div id="line-top">
-                <h1 className={`${styles[`title-header-bottom2`]} ${styles[`line-top`]}`}>{data.title} <br /> View my <a href={`${data.resume}${data.blobLinkAppend}`} target="_blank" rel="noopener noreferrer" download className={styles.resumeLink}>resume</a></h1>
+                <h1 className={`${styles[`title-header-bottom2`]} ${styles[`line-top`]}`}>{data?.title || loadingString} <br /> View my <a href={`${data?.resume}${data?.blobLinkAppend}`} target="_blank" rel="noopener noreferrer" download className={styles.resumeLink}>resume</a></h1>
               </div>
               <div id="line-bottom">
-                <p className={`${styles[`description-bottom2`]} ${styles[`line-bottom`]}`}>
-                  Email: {data.email}
+                <p className={`${styles[`email`]} ${styles[`line-bottom`]}`}>
+                  Email: {data?.email || loadingString}
                 </p>
                 <p className={styles[`copywrite-bottom`]}>
-                  {data.copyright}
+                  {data?.copyright || loadingString}
                 </p>
               </div>
             </div>
@@ -60,28 +57,4 @@ export default function Footer() {
         </div>
       );
   }
-};;
-
-//This is the loading html struct.  Im sure there is a much cleaner way of doing this but for now we are cheating. 
-function LoadingFooter() {
-  return (
-    <div className={`container`}>
-      <div className={`${styles[`adjustable-aboutme-sub-container`]}`}>
-        <div className={`${styles[`aboutme-text-wrapper2`]}`} id='aboutme-text-wrapper'>
-          <div id="line-top">
-            <h1 className={`${styles[`title-header-bottom2`]} ${styles[`line-top`]}`}>{loadingString} <br /> View my </h1>
-          </div>
-          <div id="line-bottom">
-            <p className={`${styles[`description-bottom2`]} ${styles[`line-bottom`]}`}>
-              Email: {loadingString}
-            </p>
-            <p className={styles[`copywrite-bottom`]}>
-              {loadingString}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};;
-
+};

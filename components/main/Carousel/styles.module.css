@@ -8,7 +8,8 @@
 .pDescription{
     font-size: var(--pDynoTexo);
     line-height: 1.6;
-    color: #060606;
+    color: #474747;
+    padding-top: 0;
 }
 
 .custom-next,
@@ -84,21 +85,21 @@
   line-height: 1.6;
   width: auto;
   color: #ffffff !important;
+
 }
 
 .imgProp {
   border-radius: 10% 10% 0 0;
 }
 
-
-
-
-
 .mainContainer{
 
-  margin-top: 3% !important;
+  margin-top: var(--myTopBotMargin);
+  margin-bottom: var(--myTopBotMargin);
 
 }
 
+.carouselBox {
 
-
+  scroll-padding: -700px;
+}

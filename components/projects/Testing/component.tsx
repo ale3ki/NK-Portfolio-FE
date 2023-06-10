@@ -35,7 +35,6 @@ export default function Iterations(props: { pageId: number }) {
     switch (data) {
         case (null):
             return <div>Whoops, there was a fatal error fetching the data.</div>;
-
         default:
             return (
                 <div className={` ${styles[`iterationsMain`]} container`}>

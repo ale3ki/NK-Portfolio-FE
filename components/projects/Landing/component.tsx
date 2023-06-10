@@ -41,19 +41,18 @@ export default function Landing(props: { pageId: number, backgroundColor: string
                 <div className={`${styles[`landingMain`]}`} style={{
                     backgroundColor: backgroundColor
                 }}>
-                    <div className={styles.holder}>
-                        <div className={`container`}>
-                            <h1 className={`${styles[`header`]} text-center`}> {data?.title || loadingString}</h1>
-                            <p className='text-center'>{data?.description || loadingString}</p>
+                    <div className={`${styles[`mainContent`]} container`}>
+
+                        <h1 className={`${styles[`header`]} text-center`}> {data?.title || loadingString}</h1>
+                        <p className='text-center'>{data?.description || loadingString}</p>
                             {firstSix &&
-                                <img className={`${styles.landingImg} img-fluid d-block mx-auto`} src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found" />
+                                <img className={`${styles.landingImg} img-fluid d-block mx-auto`} src={data?.image + data?.blobLinkAppend! || loadingString} alt={""} />
                             }
                         </div>
                         {!firstSix &&
-                            <img className={`${styles.landingImg} img-fluid d-block mx-auto`} src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found" />
+                            <img className={`${styles.landingImg} img-fluid d-block mx-auto`} src={data?.image + data?.blobLinkAppend! || loadingString} alt="" />
                         }
-
-                    </div>
+                   
                 </div>
             );
     }

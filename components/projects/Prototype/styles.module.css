@@ -2,6 +2,18 @@
 
     padding-top: var(--myTopBotMargin);
     padding-bottom: var(--myTopBotMargin);
+    background-image: var(--bgBlackFadeTopBot);
 
 }
 
+.myDescription{
+
+    color: #E5E5E5;
+
+}
+
+.mainTitle{
+
+    color: #FFFFFF;
+    
+}

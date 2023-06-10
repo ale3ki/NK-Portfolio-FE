@@ -10,7 +10,7 @@ export default function ProjectPage() {
 
   return (
     <main>
-      <LandingTop pageId={pageId} backgroundColor={"#e4e4e4"}/>
+      <LandingTop pageId={pageId} backgroundColor={"#E4E4E4"}/>
       <MyCarousel pageId={pageId} containerId={1} loadingString={""}/>
       <VideoSection pageId={pageId} containerId={2}/>
     </main>

@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import TopSection from '../components/main/Top/component'
 import AboutMeSection from '../components/main/AboutMe/component'
@@ -5,6 +6,7 @@ import TextScroll from '../components/main/TextScroll/component'
 import MyCarousel from '../components/main/Carousel/component'
 import Styles from './page.module.css'
 import { LinkOptions } from '../utils/types/interface';
+
 
 
 const topScrollColor: string = 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)';
@@ -33,6 +35,8 @@ let myLinkOptions: LinkOptions = {
 }
 
 export default function Page() {
+
+ 
   return(
     <main className={Styles[`navMargin`]}>
       <TopSection/>

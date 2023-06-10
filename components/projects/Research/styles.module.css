@@ -1,6 +1,6 @@
 
 .fullWidth{
-    background-color: black;
+    background-image: var(--bgBlackFadeTopBot);
     padding-top: var(--myTopBotMargin);
     padding-bottom: var(--myTopBotMargin);
 }
@@ -10,7 +10,13 @@
     margin-top: 25px;
 }
 
-.myH2{
+.myH2, .mainTitle{
 
     font-size: var(--h2DynoTexo) !important;
+    color: #FFFFFF;
+}
+
+.myDescription{
+
+    color: #E5E5E5;
 }

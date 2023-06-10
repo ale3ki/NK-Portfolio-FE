@@ -36,19 +36,21 @@ export default function Prototype(props: { pageId: number }) {
         case (null):
             return <div>Whoops, there was a fatal error fetching the data.</div>;
 
-            default:
-                return (
-                    <div className={` ${styles[`prototypeMain`]} container`}>
+        default:
+            return (
+                <div className={` ${styles[`prototypeMain`]}`}>
+                    <div className={"container"}>
                         <Fade direction="down" triggerOnce>
                             <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
                         </Fade>
                         <Fade triggerOnce>
-                            <p>{data?.description}</p>
+                            <p className={styles.myDescription}>{data?.description}</p>
                         </Fade>
                         <Zoom duration={500} triggerOnce>
-                            <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found"/>
+                            <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found" />
                         </Zoom>
                     </div>
-                );
-        }
+                </div>
+            );
+    }
 };

@@ -1,6 +1,6 @@
 
 .footerMain{
-    padding-top: var(--myTopBotMargin);
+    padding-top: calc(var(--myTopBotMargin)/2);
     position: relative;
     background-color: #000;
     display: flex;
@@ -19,12 +19,11 @@
 .copywrite-bottom {
     color: rgba(233, 220, 220, 0.5);
     font-size: var(--pDynoTexo);
+    padding: 0;
 }
 .aboutme-text-wrapper {
     position: relative;
-
     width: 100%;
-  
 }
 .aboutme-text-wrapper2 {
     position: relative;
@@ -52,20 +51,18 @@
 
 .description-bottom {
     font-family: 'Unbounded-Regular', sans-serif;
-    
-    
     width: auto;
     color: #CCCCCC;
     
 }
-.description-bottom2 {
+.email {
     font-family: 'Unbounded-Regular', sans-serif;
     font-size: 16px;
     line-height: 1.6;
     position: relative;
     width: auto;
     color: #CCCCCC;
-    
+    padding: 0;
 }
 
 .bottom-aboutme-banner {
@@ -78,6 +75,7 @@
 .resume-link {
     color: #57DDFF;
     text-decoration: none;
+    
     
 }
 
@@ -104,3 +102,4 @@
     
     
 }
+

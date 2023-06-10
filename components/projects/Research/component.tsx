@@ -50,7 +50,7 @@ export default function Research(props: { pageId: number }) {
                                 <h2 className={styles.myH2}>{data?.title2 || loadingString}</h2>
                                 </Fade>
                                 <Fade delay={500} triggerOnce>
-                                <p dangerouslySetInnerHTML={{__html: data?.description || loadingString}} />
+                                <p className={styles.myDescription} dangerouslySetInnerHTML={{__html: data?.description || loadingString}} />
                                 </Fade>
                             </div>
                             <div className={`${styles[`myCol`]} col-12 col-md-6`}>
@@ -58,7 +58,7 @@ export default function Research(props: { pageId: number }) {
                                 <h2 className={styles.myH2}>{data?.title3 || loadingString}</h2>
                                 </Fade>
                                 <Fade delay={500} triggerOnce>
-                                <p dangerouslySetInnerHTML={{__html: data?.description2 || loadingString}} />
+                                <p className={styles.myDescription} dangerouslySetInnerHTML={{__html: data?.description2 || loadingString}} />
                                 </Fade>
                             </div>
                         </div>

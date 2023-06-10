@@ -38,7 +38,7 @@ export default function AboutMe() {
 
       default:
         return (
-          <div className={styles.aboutMeMain}>
+          <div id="about" className={styles.aboutMeMain}>
             <div className={`container`}>
               <Fade triggerOnce>
                 <h2 className={styles['title-header-bottom']}>{data?.title || loadingString}</h2>

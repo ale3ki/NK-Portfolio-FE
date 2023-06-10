@@ -76,12 +76,21 @@ function ButtonBlock(props: { visibleIndex: number, hues: string[] }) {
     const [isHovered, setIsHovered] = useState(false);
     const textShadowColor = isHovered ? hues[visibleIndex] : 'transparent'; //If hovered, apply current hue, else make transparent
 
+    function scrollTo(id: string){
+        const element = document.getElementById(id);
+        element?.scrollIntoView({ behavior: 'smooth' });
+    }
+
     return (
         <div className={`${styles[`buttonBlock`]} d-flex justify-content-center`}>
-            <button className={`${styles[`resumeButton`]} text-center`}>
+            <button 
+            className={`${styles[`resumeButton`]} text-center`}
+            onClick={() =>scrollTo('footer')} 
+            >
                 Resume ↓
             </button>
             <button
+                onClick={() =>scrollTo('dynoCaro')}  // Add onClick handler here
                 className={`${styles[`projectsButton`]} text-center`}
                 style={{
                     
@@ -98,4 +107,5 @@ function ButtonBlock(props: { visibleIndex: number, hues: string[] }) {
         </div>
     );
 }
+
 

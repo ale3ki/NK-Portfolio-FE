@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
-import { Fade, Slide } from 'react-awesome-reveal';
+import { Fade } from 'react-awesome-reveal';
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
 const dataLocation: { containerId: number } = {
@@ -38,18 +38,20 @@ export default function Guide(props: { pageId: number }) {
 
         default:
             return (
-                <div className={` ${styles[`guideMain`]} container`}>
-                    <Fade triggerOnce direction="up" fraction={0.1}>
-                        <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
-                    </Fade>
-                    <div className={`${styles[`myCol`]} col-12 col-lg-8`}>
-                        <Fade delay={500} triggerOnce>
-                        <p>{data?.description || loadingString}</p>
+                <div className={` ${styles[`guideMain`]}`}>
+                    <div className="container">
+                        <Fade triggerOnce direction="up">
+                            <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
+                        </Fade>
+                        <div className={`${styles[`myCol`]} col-12 col-lg-8`}>
+                            <Fade delay={500} triggerOnce>
+                                <p className={styles.myDescription}>{data?.description || loadingString}</p>
+                            </Fade>
+                        </div>
+                        <Fade delay={250} triggerOnce >
+                            <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found" />
                         </Fade>
                     </div>
-                    <Slide triggerOnce direction="right" fraction={0.2}>
-                        <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found"/>
-                    </Slide>
                 </div>
             );
     }

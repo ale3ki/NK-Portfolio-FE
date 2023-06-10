@@ -1,9 +1,8 @@
 .projectMain {
     position: relative;
     padding-top: 74px;
-    background-color: #000000;
+    background-image: var(--bgBlackFadeTopBot);
     height: 100%;
-   
     min-height: 525px;
     
 }
@@ -50,4 +49,16 @@
         margin-top: 50px;
     
     }
+}
+
+.myDescription{
+
+    color: #E5E5E5;
+    padding-top: 0% !important;
+}
+
+.mainTitle{
+
+    color: #FFFFFF;
+    padding-bottom: 1.5%;
 }

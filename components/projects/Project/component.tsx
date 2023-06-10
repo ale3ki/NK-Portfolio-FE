@@ -66,22 +66,33 @@ export default function Project(props: { pageId: number }) {
         default:
             return (
                 <div className={`${styles['projectMain']} `}>
-                    <h1 ref={containerRef} className={`${styles['grabMyLeftMargin']} container`}>{data?.title || loadingString}</h1>
-
+                    <div ref={containerRef} className='container'>
+                        <Fade direction='down' triggerOnce>
+                            <h1 className={`${styles['grabMyLeftMargin']} ${styles['mainTitle']}`}>{data?.title || loadingString}</h1>
+                        </Fade>
+                    </div>
                     <div className={`${styles['setMyLeftMargin']} row`} style={{ marginLeft: `${marginLeft}px` }}>
                         <div className={`${styles['firstCol']} col-11 col-lg-6`}>
-                            <div>
-                                <p className={styles.firstDescription}>{data?.description || loadingString}</p>
-                                <p>{data?.description2 || ''}</p>
-                            </div>
-                            <div className={styles.progsUsed}>
-                                <h1>{data?.title2 || loadingString}</h1>
+                            <Fade delay={500} triggerOnce>
+                                <div>
+                                    <p className={styles.myDescription}>{data?.description || loadingString}</p>
+                                    <p className={styles.myDescription}>{data?.description2 || ''}</p>
+                                </div>
+                            </Fade>
 
-                                <img className={`${styles['myBtmLeftImg']} img-fluid`} src={data?.imageBLeft + data?.blobLinkAppend!} alt="Image Not Found" />
+                            <div className={styles.progsUsed}>
+                                <Fade direction='down' triggerOnce>
+                                    <h1 className={styles.mainTitle}>{data?.title2 || loadingString}</h1>
+                                </Fade>
+                                <Fade direction='left' triggerOnce>
+                                    <img className={`${styles['myBtmLeftImg']} img-fluid`} src={data?.imageBLeft + data?.blobLinkAppend!} alt="Image Not Found" />
+                                </Fade>
                             </div>
                         </div>
                         <div className={`${styles['mySecondCol']} col-12 col-lg-6 container`}>
-                            <img className={`${styles['myBtmRightImg']} img-fluid`} src={data?.imageMidRight + data?.blobLinkAppend!} alt="Image Not Found" />
+                            <Fade direction='right' triggerOnce>
+                                <img className={`${styles['myBtmRightImg']} img-fluid`} src={data?.imageMidRight + data?.blobLinkAppend!} alt="Image Not Found" />
+                            </Fade>
                         </div>
                     </div>
                 </div>
