@@ -103,3 +103,96 @@
 
   scroll-padding: -700px;
 }
+
+.imageHelper img {
+  object-fit: contain; /* Resize the image to fit within the container */
+  max-height: 100%; /* Limit the image height to the height of its container */
+  max-width: 100%; /* Limit the image width to the width of its container */
+  margin: auto; /* Center the image within its container */
+  display: block; /* To allow the margins to center the image */
+}
+
+.customModal .modal-content {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: inline-block;
+  width: auto;
+}
+.customModal {
+  background-color: rgba(33, 37, 41, 0.8);
+  color: #fff;
+  text-align: center; /* add this line */
+}
+.customModal .modal-dialog {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.modalHeaderCenter{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.myCaro {
+  padding: 0px !important;
+  
+}
+
+
+
+.myCaro {
+  background-color: rgba(48, 52, 58, 0.8); /* slightly lighter dark grey */
+}
+
+.modalHeader{
+
+  background-color: rgba(48, 52, 58, 0.863); /* slightly lighter dark grey */
+  border-bottom: none;
+
+}
+
+.imgNoMargin{
+
+  margin: 0px !important;
+}
+
+.customNextModal {
+
+  margin-left: -25px;
+
+
+
+  
+
+}
+
+.customPrevModal {
+
+  margin-right: -25px;
+ 
+  
+}
+
+.customNextModal:hover,
+.customPrevModal:hover {
+  color: #57DDFF !important;
+}
+
+.customNextModal,
+.customPrevModal {
+  display: inline-block;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 40px;
+  transition-duration: 0.4s;
+
+
+  position: relative;
+  pointer-events: all;
+  z-index: 5;
+  font-family: 'Unbounded-Medium', sans-serif;
+}
