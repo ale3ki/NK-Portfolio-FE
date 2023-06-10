@@ -50,20 +50,22 @@ export default function Top() {
             return <div>Whoops, there was a fatal error fetching the data.</div>;
         default:
             return (
-                <div className={`container`}>
-                    <div className={`${styles[`centeredContainer`]}`}>
-                        <h1 className={styles[`title-header-top`]}>{data?.title || loadingString}</h1>
-                        <div className={`${styles.wordBox} d-flex}`}>
-                            <div className={styles.wordContainer}>
-                                <h1 className={styles.testing} style={{ opacity: !data || visibleIndex === 0 ? 0 : 1 }}>CREATE.&nbsp;</h1>
-                                <h1 className={styles.testing} style={{ opacity: !data || visibleIndex === 1 ? 0 : 1 }}>DESIGN.&nbsp;</h1>
-                                <h1 className={styles.testing} style={{ opacity: !data || visibleIndex === 2 ? 0 : 1 }}>PROTOTYPE.</h1>
+                <div className={styles.topMain}>
+                    <div className={`container`}>
+                        <div className={`${styles[`centeredContainer`]}`}>
+                            <h1 className={styles[`title-header-top`]}>{data?.title || loadingString}</h1>
+                            <div className={`${styles.wordBox} d-flex}`}>
+                                <div className={styles.wordContainer}>
+                                    <h1 className={styles.testing} style={{ opacity: !data || visibleIndex === 0 ? 0 : 1 }}>CREATE.&nbsp;</h1>
+                                    <h1 className={styles.testing} style={{ opacity: !data || visibleIndex === 1 ? 0 : 1 }}>DESIGN.&nbsp;</h1>
+                                    <h1 className={styles.testing} style={{ opacity: !data || visibleIndex === 2 ? 0 : 1 }}>PROTOTYPE.</h1>
+                                </div>
                             </div>
+                            <p className={styles[`description`]}>{data?.description || loadingString}</p>
+                            <ButtonBlock visibleIndex={visibleIndex} hues={hues} />
+                            <p className={styles[`subDescription`]}>{data?.description2 || loadingString}</p>
+                            <img src="/mainProgramsUsed.svg" alt="Your Image" className={`${styles['logo-image']} img-fluid`} />
                         </div>
-                        <p className={styles[`description`]}>{data?.description || loadingString}</p>
-                        <ButtonBlock visibleIndex={visibleIndex} hues={hues} />
-                        <p className={styles[`subDescription`]}>{data?.description2 || loadingString}</p>
-                        <img src="/mainProgramsUsed.svg" alt="Your Image" className={`${styles['logo-image']} img-fluid`} />
                     </div>
                 </div>
             );
@@ -76,24 +78,24 @@ function ButtonBlock(props: { visibleIndex: number, hues: string[] }) {
     const [isHovered, setIsHovered] = useState(false);
     const textShadowColor = isHovered ? hues[visibleIndex] : 'transparent'; //If hovered, apply current hue, else make transparent
 
-    function scrollTo(id: string){
+    function scrollTo(id: string) {
         const element = document.getElementById(id);
         element?.scrollIntoView({ behavior: 'smooth' });
     }
 
     return (
         <div className={`${styles[`buttonBlock`]} d-flex justify-content-center`}>
-            <button 
-            className={`${styles[`resumeButton`]} text-center`}
-            onClick={() =>scrollTo('footer')} 
+            <button
+                className={`${styles[`resumeButton`]} text-center`}
+                onClick={() => scrollTo('footer')}
             >
                 Resume ↓
             </button>
             <button
-                onClick={() =>scrollTo('dynoCaro')}  // Add onClick handler here
+                onClick={() => scrollTo('dynoCaro')}  // Add onClick handler here
                 className={`${styles[`projectsButton`]} text-center`}
                 style={{
-                    
+
                     boxShadow: `0 0 75px ${hues[visibleIndex]}, 0 0 5px ${hues[visibleIndex]}`,
                     textShadow: isHovered ? `0 0 10px ${textShadowColor}, 0 0 20px ${textShadowColor}, 0 0 30px ${textShadowColor}` : 'none', //If hovered, apply glowing text shadow
                     color: isHovered ? 'white' : 'black'

@@ -17,6 +17,8 @@ const dataLocation: { pageId: number, containerId: number } = {
 export default function NavBar() {
   const [data, setData] = useState<Container | null | undefined>(undefined);
   const apiService = useApiService();
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,19 +36,17 @@ export default function NavBar() {
     [
       { path: '/#dynoCaro', name: 'WORK' },
       { path: '/#about', name: 'ABOUT' },
-      { path: '/#footer', name: 'CONTACT' },
+      { path: `${pathname}#footer`, name: 'CONTACT' },
     ];
-
-  const router = useRouter();
-  const pathname = usePathname();
 
   const handleClick = (event: any, path: any) => {
     event.preventDefault();
     const hash = path.split('#')[1];
-    if (pathname == '/' && hash || path == '/#footer') {
+    if (pathname == '/' || path == navLinks[2].path) {
       const element = document.getElementById(hash);
       element?.scrollIntoView({ behavior: 'smooth' });
-    } else {
+    } 
+    else {
       router.push(path);
     }
   };
@@ -75,31 +75,20 @@ export default function NavBar() {
                 {navLinks.map((link, index) => (
                   <li key={index} className={`nav-item `}>
                     <Link
-                      href={link.path}
                       onClick={(event) => handleClick(event, link.path)}
+                      href={link.path}
                       className={`${styles['nav-link']} ${styles.noUnderline} nav-link text-dark`}
                     >
                       {link.name}
                     </Link>
                   </li>
                 ))}
-
-
               </ul>
-
-              
-
-
             </div>
             <a href={`${data?.resume}${data?.blobLinkAppend}`} target="_blank" rel="noopener noreferrer" download className={styles.resumeLink}>
                 <span className={`${styles[`text`]}`}>Resume </span>
                 <span className={`${styles[`icon`]}`}>⬇</span> {/* Use any icon you want */}
               </a>
-
-
-
-
-
           </div>
 
         </nav>

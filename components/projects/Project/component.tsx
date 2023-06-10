@@ -44,13 +44,10 @@ export default function Project(props: { pageId: number }) {
                 setMarginLeft(parseFloat(style.marginLeft));
             }
         };
-
         // Update the left margin after fetching the data
         updateMargin();
-
         // Update the left margin when the window is resized
         window.addEventListener('resize', updateMargin);
-
         // Clean up the event listener when the component is unmounted
         return () => {
             window.removeEventListener('resize', updateMargin);

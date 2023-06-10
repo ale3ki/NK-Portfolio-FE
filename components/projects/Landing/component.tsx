@@ -17,6 +17,8 @@ export default function Landing(props: { pageId: number, backgroundColor: string
     const apiService = useApiService();
     const { pageId, backgroundColor } = props;
     const firstSix: boolean = (pageId < 6);
+    const [isDataLoaded, setIsDataLoaded] = useState(false);
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -27,8 +29,9 @@ export default function Landing(props: { pageId: number, backgroundColor: string
                 console.error(error);
             }
         };
-
+    
         fetchData();
+        return () => window.removeEventListener('load', () => setIsDataLoaded(true));
     }, [apiService]);
 
     //Switch case for the 3 different possible html structures.
@@ -39,18 +42,19 @@ export default function Landing(props: { pageId: number, backgroundColor: string
         default:
             return (
                 <div className={`${styles[`landingMain`]}`} style={{
-                    backgroundColor: backgroundColor
+                    backgroundColor: backgroundColor,
+                    height: isDataLoaded ? 'auto' : '100vh' // conditionally set height
                 }}>
                     <div className={`${styles[`mainContent`]} container`}>
 
                         <h1 className={`${styles[`header`]} text-center`}> {data?.title || loadingString}</h1>
                         <p className='text-center'>{data?.description || loadingString}</p>
                             {firstSix &&
-                                <img className={`${styles.landingImg} img-fluid d-block mx-auto`} src={data?.image + data?.blobLinkAppend! || loadingString} alt={""} />
+                                <img className={`${styles.landingImg} img-fluid d-block mx-auto`} src={data?.image + data?.blobLinkAppend! || loadingString} alt={""} onLoad={() => setIsDataLoaded(true)}/>
                             }
                         </div>
                         {!firstSix &&
-                            <img className={`${styles.landingImg} img-fluid d-block mx-auto`} src={data?.image + data?.blobLinkAppend! || loadingString} alt="" />
+                            <img className={`${styles.landingImg} img-fluid d-block mx-auto`} src={data?.image + data?.blobLinkAppend! || loadingString} alt="" onLoad={() => setIsDataLoaded(true)} />
                         }
                    
                 </div>

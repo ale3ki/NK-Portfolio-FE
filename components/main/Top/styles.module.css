@@ -156,3 +156,5 @@ Changing color text
     transition: opacity 1s;
     font-size: clamp(20px, 4vw, 60px) !important;
   }
+
+  

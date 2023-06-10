@@ -119,9 +119,11 @@ body {
   color: var(--geist-foreground);
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
-  scroll-padding-top: 68px;
+
 
 }
+
+
 
 h1, h2 {
   font-family: 'Unbounded-Black';

@@ -94,14 +94,14 @@ export default function DynoCaro(props: {pageId: number, containerId: number, lo
                         </Fade>
                         <div  className={`${styles[`carouselBox`]}`}>
                             <Carousel
-                                
+                                id="dynoCaro"
                                 className={styles.carouselBox}
                                 interval={null}
                                 nextIcon={totalItems > 6 ? <NextIcon /> : null}
                                 prevIcon={totalItems > 6 ? <PrevIcon /> : null}
                             >
                                 {groupedCards.map((group, index) => (
-                                    <Carousel.Item id="dynoCaro" key={index} className={styles.carouselItem}>
+                                    <Carousel.Item  key={index} className={styles.carouselItem}>
                                         {group.map((row, i) => (
                                             <div className={`row ${row.length < 3 ? 'justify-content-md-center' : ''}`} key={i}>
                                                 {row.map((card, j) => (
