@@ -173,13 +173,20 @@ button.accept-policy {
     padding: 5px 15px;
  
   }
+  .icon{
+    display: "Download";
+  }
 }
+
 
 @media (max-width: 600px) {
 
   .resumeLink {
     padding: 9px 24px;
   
+  }
+  .icon{
+    display: none;
   }
 }
 
@@ -189,4 +196,9 @@ button.accept-policy {
   text-align: center;
 
 
+}
+
+.text, .icon{
+
+  color: #ffffff !important;
 }
