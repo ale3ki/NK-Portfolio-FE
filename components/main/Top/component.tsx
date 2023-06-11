@@ -12,7 +12,7 @@ const dataLocation: { pageId: number, containerId: number } = {
 };
 //Set this to change the loading string for the elements within the component.
 const loadingString: string = "Loading...";
-
+//TO DO: Move this out of here
 interface SEOData {
     title: string;
     desc: string;
@@ -62,14 +62,13 @@ export default function Top() {
         default:
             return (
                 <div className={styles.topMain}>
-                    <div className={`container`}>
-                        <div className={`${styles[`centeredContainer`]}`}>
+                        <div className={`${styles[`centeredContainer`]} container`}>
                             <h1 className={styles[`title-header-top`]}>{seoData.title}</h1>
                             <div className={`${styles.wordBox} d-flex}`}>
                                 <div className={styles.wordContainer}>
-                                    <h1 className={`${styles[`testing`]}`} style={{ opacity:  visibleIndex === 0 ? 0 : 1 }}>CREATE.&nbsp;</h1>
-                                    <h1 className={styles.testing} style={{ opacity:  visibleIndex === 1 ? 0 : 1 }}>DESIGN.&nbsp;</h1>
-                                    <h1 className={styles.testing} style={{ opacity:  visibleIndex === 2 ? 0 : 1 }}>PROTOTYPE.</h1>
+                                    <h1 className={styles.word} style={{ opacity:  visibleIndex === 0 ? 0 : 1 }}>CREATE.&nbsp;</h1>
+                                    <h1 className={styles.word} style={{ opacity:  visibleIndex === 1 ? 0 : 1 }}>DESIGN.&nbsp;</h1>
+                                    <h1 className={styles.word} style={{ opacity:  visibleIndex === 2 ? 0 : 1 }}>PROTOTYPE.</h1>
                                 </div>
                             </div>
                             <p className={styles[`description`]}>{seoData.desc}</p>
@@ -77,7 +76,6 @@ export default function Top() {
                             <p className={styles[`subDescription`]}>{seoData.desc2}</p>
                             <img src="/mainProgramsUsed.svg" alt="Your Image" className={`${styles['logo-image']} img-fluid`} />
                         </div>
-                    </div>
                 </div>
             );
     }
@@ -87,7 +85,7 @@ export default function Top() {
 function ButtonBlock(props: { visibleIndex: number, hues: string[] }) {
     const { visibleIndex, hues } = props;
     const [isHovered, setIsHovered] = useState(false);
-    const textShadowColor = isHovered ? hues[visibleIndex] : 'transparent'; //If hovered, apply current hue, else make transparent
+    const textShadowColor = isHovered ? hues[visibleIndex] : 'transparent'; 
 
     function scrollTo(id: string) {
         const element = document.getElementById(id);
@@ -95,7 +93,7 @@ function ButtonBlock(props: { visibleIndex: number, hues: string[] }) {
     }
 
     return (
-        <div className={`${styles[`buttonBlock`]} d-flex justify-content-center`}>
+        <div className={`${styles[`buttonBlock`]} d-flex justify-content-center row`}>
             <button
                 className={`${styles[`resumeButton`]} text-center`}
                 onClick={() => scrollTo('footer')}
@@ -103,13 +101,14 @@ function ButtonBlock(props: { visibleIndex: number, hues: string[] }) {
                 Resume&nbsp;
             </button>
             <button
-                onClick={() => scrollTo('dynoCaro')}  // Add onClick handler here
-                className={`${styles[`projectsButton`]} text-center`}
+                onClick={() => scrollTo('dynoCaro')}  
+                className={`${styles[`projectsButton`]}  text-center`}
                 style={{
 
                     boxShadow: `0 0 75px ${hues[visibleIndex]}, 0 0 5px ${hues[visibleIndex]}`,
                     textShadow: isHovered ? `0 0 10px ${textShadowColor}, 0 0 20px ${textShadowColor}, 0 0 30px ${textShadowColor}` : 'none', //If hovered, apply glowing text shadow
                     color: isHovered ? 'white' : 'black'
+                    
 
                 }}
                 onMouseEnter={() => setIsHovered(true)}

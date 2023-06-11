@@ -26,12 +26,12 @@ class ApiService {
     this.serviceStarting = true;
     await this.fetchAllPages()
       .then(() => {
-        console.log("INFO: API Services successfully initialized.");
+       // console.log("INFO: API Services successfully initialized.");
         this.dataLoaded = true;
       })
       .catch((error) => {
         this.fatalError = true;
-        console.error("ERROR: API Services failed to initialize.", error);
+       // console.error("ERROR: API Services failed to initialize.", error);
       });
     this.serviceStarting = false;
   }
@@ -41,12 +41,12 @@ class ApiService {
   
     switch (status) {
       case 'success':
-        console.log("INFO: API Service is prepared to retrieve data from local cache.");
+       // console.log("INFO: API Service is prepared to retrieve data from local cache.");
         const pageData = this.allPages![pageID];
         const containerData = pageData?.containers[containerID];
   
         if (pageData && containerData) {
-          console.log("INFO: API Services successfully retrieved the data.");
+         // console.log("INFO: API Services successfully retrieved the data.");
           containerData.blobLinkAppend = "?" + pageData.blobAppendSAS;
           return containerData;
         } else {
@@ -86,7 +86,7 @@ class ApiService {
   private async checkStatus(): Promise<"success" | "loading" | "failed"> {
 
     if (!this.dataLoaded && !this.fatalError && !this.serviceStarting) {
-      console.log("INFO: API Services is initiating startup...");
+     // console.log("INFO: API Services is initiating startup...");
       await this.startService();
       if (this.dataLoaded) {
         return "success";
@@ -94,13 +94,13 @@ class ApiService {
         return "loading";
       }
     } else if (this.dataLoaded) {
-      console.log("INFO: API Services has already loaded data into the cache.");
+     // console.log("INFO: API Services has already loaded data into the cache.");
       return "success";
     } else if (this.serviceStarting) {
-      console.log("INFO: API Services is in the process of loading...");
+     // console.log("INFO: API Services is in the process of loading...");
       return "loading";
     } else {
-      console.error("ERROR: API Services failed to start. Please refer to the logs for further details.");
+     // console.error("ERROR: API Services failed to start. Please refer to the logs for further details.");
       return "failed";
     }
   }
@@ -111,9 +111,9 @@ class ApiService {
     // Either a page was not found in the json object or the container within that page was not found.
     for (let i = 0; i < containers.length; i++) {
       if (containers[i]) {
-        console.log(`INFO: Data for ${containerNames[i]} has been successfully located.`);
+       // console.log(`INFO: Data for ${containerNames[i]} has been successfully located.`);
       } else {
-        console.log(`ERROR: Data for ${containerNames[i]} was not found.`);
+       // console.log(`ERROR: Data for ${containerNames[i]} was not found.`);
       }
     }
   }
