@@ -74,7 +74,7 @@ export default function Top() {
                             <p className={styles[`description`]}>{seoData.desc}</p>
                             <ButtonBlock visibleIndex={visibleIndex} hues={hues} />
                             <p className={styles[`subDescription`]}>{seoData.desc2}</p>
-                            <img src="/mainProgramsUsed.svg" alt="Your Image" className={`${styles['logo-image']} img-fluid`} />
+                            <img src="/mainProgramsUsed.svg" alt="Image Is Not Home" className={`${styles['logo-image']} img-fluid`} />
                         </div>
                 </div>
             );
