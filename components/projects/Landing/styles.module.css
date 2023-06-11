@@ -1,8 +1,17 @@
 .landingMain {
+    position: relative; /* add this */
     background-color: #ffffff;
     height: 100vh;
     padding-top: 25px;
+    margin-top: -10px;
 }
 
-
-
+.landingMain::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px; 
+    background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}

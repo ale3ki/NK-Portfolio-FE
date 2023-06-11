@@ -122,7 +122,10 @@
 .customModal {
   background-color: rgba(33, 37, 41, 0.8);
   color: #fff;
-  text-align: center; /* add this line */
+
+  padding-right: 0px !important;
+  
+
 }
 .customModal .modal-dialog {
   display: flex;
@@ -139,6 +142,7 @@
 
 .myCaro {
   padding: 0px !important;
+  
   
 }
 

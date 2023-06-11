@@ -89,7 +89,7 @@ function ButtonBlock(props: { visibleIndex: number, hues: string[] }) {
                 className={`${styles[`resumeButton`]} text-center`}
                 onClick={() => scrollTo('footer')}
             >
-                Resume ↓
+                Resume&nbsp;
             </button>
             <button
                 onClick={() => scrollTo('dynoCaro')}  // Add onClick handler here

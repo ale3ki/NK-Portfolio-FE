@@ -85,7 +85,7 @@ export default function NavBar() {
                 ))}
               </ul>
             </div>
-            <a href={`${data?.resume}${data?.blobLinkAppend}`} target="_blank" rel="noopener noreferrer" download className={styles.resumeLink}>
+            <a href={`${data?.resume}${data?.blobLinkAppend}`} target="_blank" rel="noopener noreferrer" download="Nicolaas Kilde Resume 2023.pdf" className={styles.resumeLink}>
                 <span className={`${styles[`text`]}`}>Resume </span>
                 <span className={`${styles[`icon`]}`}>⬇</span> {/* Use any icon you want */}
               </a>
