@@ -115,9 +115,8 @@
 .projectsButton, .resumeButton{
     border-radius: .5rem;
     cursor: pointer;
-    font-size: clamp(15px, 1.5vw, 20px);
+    font-size: clamp(10px, 1.5vw, 20px);
     transition-duration: 0.4s;
-    padding: 4.5% 25%;
 }
 
 .logo-image{
@@ -157,3 +156,31 @@ Changing color text
     font-size: clamp(20px, 4vw, 60px) !important;
   }
 
+/* Increase padding for larger screens */
+@media (min-width: 400px) {
+
+    .projectsButton, .resumeButton{
+        padding: 10px 50px;
+        
+    }
+   
+  }
+  
+  /* Increase padding for even larger screens */
+  @media (min-width: 700px) {
+
+    .projectsButton, .resumeButton{
+        padding: 12.5px 65px;
+        
+    }
+    
+  }
+  
+  /* Increase padding for the largest screens */
+  @media (min-width: 1000px) {
+    .projectsButton, .resumeButton{
+        padding: 15px 80px;
+        
+    }
+    
+  }

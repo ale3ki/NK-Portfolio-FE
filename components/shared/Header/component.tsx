@@ -73,7 +73,7 @@ export default function NavBar() {
                     key={index}
                     onClick={(event) => handleClick(event, link.path)}
                     href={link.path}
-                    className={`${styles['nav-link']} ${styles.noUnderline} text-dark`}
+                    className={`${styles['nav-link']} ${styles.noUnderline} ${styles.textCenter}`}
                   >
                     {link.name}
                   </Nav.Link>
@@ -85,8 +85,8 @@ export default function NavBar() {
                   download="Nicolaas Kilde Resume 2023.pdf"
                   className={`${styles['resumeLink']} text-center`}
                 >
-                  <span className={`${styles[`text`]}`}>Resume </span>
-                  <span className={`${styles[`icon`]}`}>⬇</span>
+                  <span className={`${styles[`text`]} `}>Resume </span>
+                  <span className={`${styles[`icon`]} `}>⬇</span>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>

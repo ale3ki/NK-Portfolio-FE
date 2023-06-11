@@ -7,6 +7,9 @@
   color: #474747 !important;
   font-family: 'Unbounded-Regular', sans-serif;
   margin-left: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-link:hover {
@@ -89,6 +92,10 @@ button.accept-policy {
   font-size: clamp(15px, 1.5vw, 20px);
   font-family: 'Unbounded-Regular', sans-serif;
   margin-left: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .resumeLink:hover{
@@ -174,4 +181,12 @@ button.accept-policy {
     padding: 9px 24px;
   
   }
+}
+
+.textcenter{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+
 }

@@ -4,7 +4,6 @@ import styles from './styles.module.css';
 import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
 
-
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
 //In the html structure, just call {data.anything} 
 const dataLocation: { pageId: number, containerId: number } = {
@@ -19,7 +18,6 @@ interface SEOData {
     desc: string;
     desc2: string;
 }
-
 
 const seoData: SEOData = {
     title: "CREATE. DESIGN. PROTOTYPE.",
@@ -69,7 +67,7 @@ export default function Top() {
                             <h1 className={styles[`title-header-top`]}>{seoData.title}</h1>
                             <div className={`${styles.wordBox} d-flex}`}>
                                 <div className={styles.wordContainer}>
-                                    <h1 className={styles.testing} style={{ opacity:  visibleIndex === 0 ? 0 : 1 }}>CREATE.&nbsp;</h1>
+                                    <h1 className={`${styles[`testing`]}`} style={{ opacity:  visibleIndex === 0 ? 0 : 1 }}>CREATE.&nbsp;</h1>
                                     <h1 className={styles.testing} style={{ opacity:  visibleIndex === 1 ? 0 : 1 }}>DESIGN.&nbsp;</h1>
                                     <h1 className={styles.testing} style={{ opacity:  visibleIndex === 2 ? 0 : 1 }}>PROTOTYPE.</h1>
                                 </div>
