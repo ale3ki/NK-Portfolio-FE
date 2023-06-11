@@ -36,21 +36,17 @@ export default function TextScroll(props: { pageId: number, containerId: number,
             return <div>Whoops, there was a fatal error fetching the data.</div>;
         default:
             return (
-                <div className={`d-flex`}>
-                    <div className={styles.marquee} style={{
-                        paddingTop: paddingTop,
-                        paddingBottom: paddingBottom,
-                        background: bgColor
-                    }}>
+                <div className={`d-flex`} style={{
+                    paddingTop: paddingTop,
+                    paddingBottom: paddingBottom,
+                    background: bgColor
+                }}>
+                    <div className={styles.marquee}>
                         <p className={styles.marqP} style={{
                             color: textColor
                         }}>{list1}</p>
                     </div>
-                    <div className={styles.marquee} style={{
-                        paddingTop: paddingTop,
-                        paddingBottom: paddingBottom,
-                        background: bgColor
-                    }}>
+                    <div className={styles.marquee}>
                         <p className={styles.marqP} style={{
                             color: textColor
                         }}>{list2}</p>

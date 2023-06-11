@@ -1,19 +1,19 @@
 .marquee {
-  width: auto;  
+  width: auto;
   white-space: nowrap;
-  background: white;
 }
 
 @keyframes marqP {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-100%);
   }
 }
 
-.marqP{
+.marqP {
   margin: 0;
   padding: 0;
   color: white;
