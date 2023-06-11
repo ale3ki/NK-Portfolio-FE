@@ -1,24 +1,24 @@
 .marquee {
   width: auto;  
   white-space: nowrap;
-  animation: marquee 40s linear infinite;
   background: white;
 }
 
-@keyframes marquee {
+@keyframes marqP {
   0% {
     transform: translateX(0%);
   }
   100% {
     transform: translateX(-100%);
   }
-
 }
 
 .marqP{
   margin: 0;
+  padding: 0;
   color: white;
   font-size: clamp(20px, 1.5vw, 30px) !important;
   font-family: 'Unbounded-Black', sans-serif !important;
   width: 100%;
+  animation: marqP 40s linear infinite;
 }

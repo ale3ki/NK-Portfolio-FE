@@ -37,21 +37,22 @@ export default function TextScroll(props: { pageId: number, containerId: number,
         default:
             return (
                 <div className={`d-flex`}>
-                    <div className={styles.marquee}>
+                    <div className={styles.marquee} style={{
+                        paddingTop: paddingTop,
+                        paddingBottom: paddingBottom,
+                        background: bgColor
+                    }}>
                         <p className={styles.marqP} style={{
-                            background: bgColor,
-                            color: textColor,
-                            paddingTop: paddingTop,
-                            paddingBottom: paddingBottom
-                            
+                            color: textColor
                         }}>{list1}</p>
                     </div>
-                    <div className={styles.marquee}>
+                    <div className={styles.marquee} style={{
+                        paddingTop: paddingTop,
+                        paddingBottom: paddingBottom,
+                        background: bgColor
+                    }}>
                         <p className={styles.marqP} style={{
-                            background: bgColor,
-                            color: textColor,
-                            paddingTop: paddingTop,
-                            paddingBottom: paddingBottom
+                            color: textColor
                         }}>{list2}</p>
                     </div>
                 </div>
