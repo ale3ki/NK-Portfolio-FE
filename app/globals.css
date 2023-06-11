@@ -122,13 +122,6 @@ body {
 
 }
 
-html {
-
-  padding-top: calc(23px + 1vh);
-}
-
-
-
 h1, h2 {
   font-family: 'Unbounded-Black';
   color: black;
