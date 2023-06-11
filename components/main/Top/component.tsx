@@ -14,12 +14,25 @@ const dataLocation: { pageId: number, containerId: number } = {
 //Set this to change the loading string for the elements within the component.
 const loadingString: string = "Loading...";
 
+interface SEOData {
+    title: string;
+    desc: string;
+    desc2: string;
+}
+
+
+const seoData: SEOData = {
+    title: "CREATE. DESIGN. PROTOTYPE.",
+    desc: "Merging creativity and technology, transforming dreams into reality through innovative UI/UX design and product design.",
+    desc2: "DESIGNS POWERED BY PROFESSIONAL CREATIVE SOFTWARE",
+};
+
 export default function Top() {
     const [data, setData] = useState<Container | null | undefined>(undefined);
     const apiService = useApiService();
     const [visibleIndex, setVisibleIndex] = useState(0);
     const hues = ['blue', 'red', 'purple']; //change me for button hue
-    const timeChange: number = 3000; // 5 seconds
+    const timeChange: number = 3000; // 3 seconds
 
     useEffect(() => {
         const fetchData = async () => {
@@ -53,17 +66,17 @@ export default function Top() {
                 <div className={styles.topMain}>
                     <div className={`container`}>
                         <div className={`${styles[`centeredContainer`]}`}>
-                            <h1 className={styles[`title-header-top`]}>{data?.title || loadingString}</h1>
+                            <h1 className={styles[`title-header-top`]}>{seoData.title}</h1>
                             <div className={`${styles.wordBox} d-flex}`}>
                                 <div className={styles.wordContainer}>
-                                    <h1 className={styles.testing} style={{ opacity: !data || visibleIndex === 0 ? 0 : 1 }}>CREATE.&nbsp;</h1>
-                                    <h1 className={styles.testing} style={{ opacity: !data || visibleIndex === 1 ? 0 : 1 }}>DESIGN.&nbsp;</h1>
-                                    <h1 className={styles.testing} style={{ opacity: !data || visibleIndex === 2 ? 0 : 1 }}>PROTOTYPE.</h1>
+                                    <h1 className={styles.testing} style={{ opacity:  visibleIndex === 0 ? 0 : 1 }}>CREATE.&nbsp;</h1>
+                                    <h1 className={styles.testing} style={{ opacity:  visibleIndex === 1 ? 0 : 1 }}>DESIGN.&nbsp;</h1>
+                                    <h1 className={styles.testing} style={{ opacity:  visibleIndex === 2 ? 0 : 1 }}>PROTOTYPE.</h1>
                                 </div>
                             </div>
-                            <p className={styles[`description`]}>{data?.description || loadingString}</p>
+                            <p className={styles[`description`]}>{seoData.desc}</p>
                             <ButtonBlock visibleIndex={visibleIndex} hues={hues} />
-                            <p className={styles[`subDescription`]}>{data?.description2 || loadingString}</p>
+                            <p className={styles[`subDescription`]}>{seoData.desc2}</p>
                             <img src="/mainProgramsUsed.svg" alt="Your Image" className={`${styles['logo-image']} img-fluid`} />
                         </div>
                     </div>

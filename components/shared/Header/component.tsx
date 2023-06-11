@@ -1,10 +1,11 @@
 'use client'
-import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import styles from './styles.module.css';
 import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
 import { useState, useEffect } from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
@@ -45,7 +46,7 @@ export default function NavBar() {
     if (pathname == '/' || path == navLinks[2].path) {
       const element = document.getElementById(hash);
       element?.scrollIntoView({ behavior: 'smooth' });
-    } 
+    }
     else {
       router.push(path);
     }
@@ -58,40 +59,39 @@ export default function NavBar() {
 
     default:
       return (
-        <nav className={`${styles.navbar} navbar navbar-expand-md navbar-toggleable-md navbar-light bg-white border-bottom box-shadow`}>
+        <Navbar collapseOnSelect expand="md" className={`${styles.navbar} border-bottom box-shadow bg-white`}>
           <div className={`container`}>
-            <div className={`${styles['d-flex']} d-flex align-items-center`}>
-              <Link href="/" className={`navbar-brand`}>
-                <img src="/headerLogo.svg" alt="Your Image" className={`${styles['logo-image']}`} />
-                Nicolaas Kilde
-              </Link>
-            </div>
-            <button className={`navbar-toggler`} type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-              aria-expanded="false" aria-label="Toggle navigation">
-              <span className={`navbar-toggler-icon`}></span>
-            </button>
-            <div className={`navbar-collapse collapse d-md-inline-flex justify-content-between`}>
-              <ul className={`navbar-nav ms-auto`}>
+            <Navbar.Brand href="/" className={`${styles['d-flex']} d-flex align-items-center`}>
+              <img src="/headerLogo.svg" alt="Your Image" className={`${styles['logo-image']}`} />
+              Nicolaas Kilde
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbarResponsive" />
+            <Navbar.Collapse id="navbarResponsive">
+              <Nav className="ms-auto">
                 {navLinks.map((link, index) => (
-                  <li key={index} className={`nav-item `}>
-                    <Link
-                      onClick={(event) => handleClick(event, link.path)}
-                      href={link.path}
-                      className={`${styles['nav-link']} ${styles.noUnderline} nav-link text-dark`}
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
+                  <Nav.Link
+                    key={index}
+                    onClick={(event) => handleClick(event, link.path)}
+                    href={link.path}
+                    className={`${styles['nav-link']} ${styles.noUnderline} text-dark`}
+                  >
+                    {link.name}
+                  </Nav.Link>
                 ))}
-              </ul>
-            </div>
-            <a href={`${data?.resume}${data?.blobLinkAppend}`} target="_blank" rel="noopener noreferrer" download="Nicolaas Kilde Resume 2023.pdf" className={styles.resumeLink}>
-                <span className={`${styles[`text`]}`}>Resume </span>
-                <span className={`${styles[`icon`]}`}>⬇</span> {/* Use any icon you want */}
-              </a>
+                <Nav.Link
+                  href={`${data?.resume}${data?.blobLinkAppend}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="Nicolaas Kilde Resume 2023.pdf"
+                  className={`${styles['resumeLink']} text-center`}
+                >
+                  <span className={`${styles[`text`]}`}>Resume </span>
+                  <span className={`${styles[`icon`]}`}>⬇</span>
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
           </div>
-
-        </nav>
+        </Navbar>
       );
   }
 };

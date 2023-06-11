@@ -157,4 +157,8 @@ Changing color text
     font-size: clamp(20px, 4vw, 60px) !important;
   }
 
-  
+
+  .topMain{
+
+    padding-top: clamp(58px, 2vw, 67px);;
+  }
