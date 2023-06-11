@@ -45,7 +45,7 @@ function DynoCaroModal(props: { showModal: boolean, handleCloseModal: () => void
         <Modal className={styles.customModal} show={showModal} onHide={handleCloseModal}>
             <Modal.Header closeButton className={styles.modalHeader}>
                 <div className={styles.modalHeaderCenter}>
-                    <Modal.Title className={'text-center'}>{currentCard.title}</Modal.Title>
+                    <Modal.Title className={styles.centerMe}>{currentCard.title}</Modal.Title>
                 </div>
             </Modal.Header>
             <Modal.Body className={styles.myCaro}>
