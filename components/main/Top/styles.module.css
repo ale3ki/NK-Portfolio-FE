@@ -115,7 +115,7 @@
 .projectsButton, .resumeButton{
     border-radius: .5rem;
     cursor: pointer;
-    font-size: calc(.5vw + 10px);
+    font-size: clamp(15px, 1.5vw, 20px);
     transition-duration: 0.4s;
     padding: 4.5% 25%;
 }
@@ -157,8 +157,3 @@ Changing color text
     font-size: clamp(20px, 4vw, 60px) !important;
   }
 
-
-  .topMain{
-
-    padding-top: clamp(58px, 2vw, 67px);;
-  }
