@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
+import { isDecorator } from 'typescript';
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
 const dataLocation: { pageId: number, containerId: number } = {
@@ -44,11 +45,12 @@ export default function Footer() {
                 <h1 className={`${styles[`title-header-bottom2`]} ${styles[`line-top`]}`}>
                   {data?.title || loadingString}
                   <br />
-                  View my
+                  View my {' '}
                   <a href={`${data?.resume}${data?.blobLinkAppend}`}
                      target="_blank" rel="noopener noreferrer"
                      download
-                     className={styles.resumeLink}>
+                     className={styles.resumeLink}
+                    >
                     resume
                   </a>
                 </h1>
