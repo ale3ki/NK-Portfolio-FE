@@ -19,7 +19,7 @@ export default function TextScroll(props: { pageId: number, containerId: number,
             try {
                 //if this data is cached, it will use the cached data instead.  Everything is automated (hopefully).
                 const result = await apiService.getContainerDataByPageID(pageId, containerId);
-                const newText = Array(5).fill(result?.description || 'Error...').join('');
+                const newText = Array(2).fill(result?.description || 'Error...').join('');
                 setList1(newText);
                 setList2(newText);
                 setData(result);
@@ -36,7 +36,7 @@ export default function TextScroll(props: { pageId: number, containerId: number,
             return <div>Whoops, there was a fatal error fetching the data.</div>;
         default:
             return (
-                <div className={styles.dflex}>
+                <div className={`d-flex`}>
                     <div className={styles.marquee}>
                         <p className={styles.marqP} style={{
                             background: bgColor,
