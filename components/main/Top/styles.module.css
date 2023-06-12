@@ -1,10 +1,10 @@
 .centeredContainer {
-    height: 100%;
+    height: auto;
     align-items: center; 
     display: flex;
     flex-direction: column;
-    transform: translateY(25%);
-    padding: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
 
 .title-header-top {
@@ -13,10 +13,10 @@
     font-size: clamp(20px, 4vw, 60px) !important;
     white-space: nowrap;
     position: relative;
-    background: var(--newGradient);
-    -webkit-background-clip: text;
+    -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent;
     padding: 0;
+    
 }
 
 .description {
@@ -127,11 +127,10 @@
 
 
 .logo-image{
-    margin-top:2vh;
 
     max-width: 500px;
-
     width: 50%;
+  
     
     
 }
@@ -149,6 +148,16 @@ Changing color text
    
     position: absolute;
   }
+  .wordBoxRelative {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+    font-family: 'Unbounded-Black', sans-serif;
+   
+    position: relative;
+  }
   
   .wordContainer {
     position: relative;
@@ -161,6 +170,7 @@ Changing color text
     color: black;
     transition: opacity 1s;
     font-size: clamp(20px, 4vw, 60px) !important;
+    text-align: center;
   }
 
 /* Button padding for different screen size - lazy way */
@@ -170,6 +180,11 @@ Changing color text
         padding: 10px 50px;
         width: 80%;
     }
+
+    .wordContainer {
+     display: flow-root;
+    }
+
    
   }
 
@@ -179,6 +194,9 @@ Changing color text
         padding: 10px 50px;
         width: 100%;
     }
+    .wordContainer {
+      display: inline-flex;
+     }
    
   }
   
@@ -203,6 +221,10 @@ Changing color text
 
 
   .topMain{
-    margin-top: -57px;
-    height: 100vh;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  
   }

@@ -16,10 +16,8 @@ export default function Project(props: { pageId: number }) {
     const [data, setData] = useState<Container | null | undefined>(undefined);
     const apiService = useApiService();
     const { pageId } = props;
-
     // Create a ref for the container
     const containerRef = useRef(null);
-
     // Create a state variable for the left margin
     const [marginLeft, setMarginLeft] = useState(0);
 

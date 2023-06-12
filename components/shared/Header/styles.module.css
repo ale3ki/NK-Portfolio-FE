@@ -1,3 +1,13 @@
+.navbar {
+  margin-bottom: 0 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030; /* To keep the navbar on top of other elements */
+
+}
+
 .logo-image {
     height: clamp(30px, 40px, 2vw);
     margin-right: 10px;
@@ -68,15 +78,6 @@ button.accept-policy {
     flex: 1;
 }
 
-.navbar {
-    margin-bottom: 0 !important;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1030; /* To keep the navbar on top of other elements */
-
-}
 
 .resumeLink {
   color: #ffffff;

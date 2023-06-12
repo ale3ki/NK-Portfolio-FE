@@ -19,6 +19,8 @@ interface SEOData {
     desc2: string;
 }
 
+//<h1 className={styles[`title-header-top`]}>{seoData.title}</h1>
+
 const seoData: SEOData = {
     title: "CREATE. DESIGN. PROTOTYPE.",
     desc: "Merging creativity and technology, transforming dreams into reality through innovative UI/UX design and product design.",
@@ -56,26 +58,49 @@ export default function Top() {
         };
     }, [visibleIndex]);
 
+    useEffect(() => {
+        // get the height of the Navbar
+        const setTopMargin = () => {
+            const navbarHeight = document.getElementById('navbar')!.offsetHeight;
+            // set the padding-top of the main element to the Navbar height
+            document.getElementById('main')!.style.height = `calc(100vh - ${navbarHeight}px)`;
+            document.getElementById('main')!.style.marginTop = `${navbarHeight}px`;
+        };
+        setTopMargin();
+        window.addEventListener('resize', setTopMargin)
+        return () => {
+            window.removeEventListener('resize', setTopMargin)
+        };
+    }, [data]);
+
     switch (data) {
         case (null):
             return <div>Whoops, there was a fatal error fetching the data.</div>;
         default:
             return (
-                <div className={styles.topMain}>
-                        <div className={`${styles[`centeredContainer`]} container`}>
-                            <h1 className={styles[`title-header-top`]}>{seoData.title}</h1>
-                            <div className={`${styles.wordBox} d-flex}`}>
-                                <div className={styles.wordContainer}>
-                                    <h1 className={styles.word} style={{ opacity:  visibleIndex === 0 ? 0 : 1 }}>CREATE.&nbsp;</h1>
-                                    <h1 className={styles.word} style={{ opacity:  visibleIndex === 1 ? 0 : 1 }}>DESIGN.&nbsp;</h1>
-                                    <h1 className={styles.word} style={{ opacity:  visibleIndex === 2 ? 0 : 1 }}>PROTOTYPE.</h1>
-                                </div>
+                <div id="main" className={styles.topMain}>
+                    <div className={`${styles[`centeredContainer`]} container`}>
+                        <div className={`${styles.wordBoxRelative} d-flex} `}>
+                            <div className={styles.wordContainer}>
+                                <h1 className={styles[`title-header-top`]} style={{ background: "var(--blueGradient)" }}>CREATE.&nbsp;</h1>
+                                <h1 className={styles[`title-header-top`]} style={{ background: "var(--redGradient)" }}>DESIGN.&nbsp;</h1>
+                                <h1 className={styles[`title-header-top`]} style={{ background: "var(--purpleGradient)" }}>PROTOTYPE.</h1>
+
+
                             </div>
-                            <p className={styles[`description`]}>{seoData.desc}</p>
-                            <ButtonBlock visibleIndex={visibleIndex} hues={hues} />
-                            <p className={styles[`subDescription`]}>{seoData.desc2}</p>
-                            <img src="/mainProgramsUsed.svg" alt="Image Is Not Home" className={`${styles['logo-image']} img-fluid`} />
                         </div>
+                        <div className={`${styles.wordBox} d-flex} `}>
+                            <div className={styles.wordContainer}>
+                                <h1 className={styles.word} style={{ opacity: visibleIndex === 0 ? 0 : 1 }}>CREATE.&nbsp;</h1>
+                                <h1 className={styles.word} style={{ opacity: visibleIndex === 1 ? 0 : 1 }}>DESIGN.&nbsp;</h1>
+                                <h1 className={styles.word} style={{ opacity: visibleIndex === 2 ? 0 : 1 }}>PROTOTYPE.</h1>
+                            </div>
+                        </div>
+                        <p className={styles[`description`]}>{seoData.desc}</p>
+                        <ButtonBlock visibleIndex={visibleIndex} hues={hues} />
+                        <p className={styles[`subDescription`]}>{seoData.desc2}</p>
+                        <img src="/mainProgramsUsed.svg" alt="Image Is Not Home" className={`${styles['logo-image']} img-fluid`} />
+                    </div>
                 </div>
             );
     }
@@ -85,13 +110,12 @@ export default function Top() {
 function ButtonBlock(props: { visibleIndex: number, hues: string[] }) {
     const { visibleIndex, hues } = props;
     const [isHovered, setIsHovered] = useState(false);
-    const textShadowColor = isHovered ? hues[visibleIndex] : 'transparent'; 
+    const textShadowColor = isHovered ? hues[visibleIndex] : 'transparent';
 
     function scrollTo(id: string) {
         const element = document.getElementById(id);
         element?.scrollIntoView({ behavior: 'smooth' });
     }
-
     return (
         <div className={`${styles[`buttonBlock`]} d-flex justify-content-center row`}>
             <button
@@ -101,15 +125,13 @@ function ButtonBlock(props: { visibleIndex: number, hues: string[] }) {
                 Resume&nbsp;
             </button>
             <button
-                onClick={() => scrollTo('dynoCaro')}  
+                onClick={() => scrollTo('dynoCaro')}
                 className={`${styles[`projectsButton`]}  text-center`}
                 style={{
 
                     boxShadow: `0 0 75px ${hues[visibleIndex]}, 0 0 5px ${hues[visibleIndex]}`,
                     textShadow: isHovered ? `0 0 10px ${textShadowColor}, 0 0 20px ${textShadowColor}, 0 0 30px ${textShadowColor}` : 'none', //If hovered, apply glowing text shadow
                     color: isHovered ? 'white' : 'black'
-                    
-
                 }}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}

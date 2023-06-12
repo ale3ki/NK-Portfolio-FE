@@ -59,7 +59,7 @@ export default function NavBar() {
 
     default:
       return (
-        <Navbar collapseOnSelect expand="md" className={`${styles.navbar} border-bottom box-shadow bg-white`}>
+        <Navbar id="navbar" collapseOnSelect expand="md" className={`${styles.navbar} border-bottom box-shadow bg-white`}>
           <div className={`container`}>
             <Navbar.Brand href="/" className={`${styles['d-flex']} d-flex align-items-center`}>
               <img src="/headerLogo.svg" alt="Your Image" className={`${styles['logo-image']}`} />
