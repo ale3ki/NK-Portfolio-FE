@@ -1,230 +1,276 @@
 .centeredContainer {
-    height: auto;
-    align-items: center; 
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
-    margin-bottom: 5%;
-  }
+  height: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
 
 .title-header-top {
 
-    font-family: 'Unbounded-Black', sans-serif;
-    font-size: clamp(20px, 4vw, 60px) !important;
-    white-space: nowrap;
-    position: relative;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent;
-    padding: 0;
-    
+  font-family: 'Unbounded-Black', sans-serif;
+  font-size: clamp(20px, 4vw, 60px) !important;
+  white-space: nowrap;
+  position: relative;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  padding: 0;
+
 }
 
 .description {
-    font-family: 'Unbounded-Regular', sans-serif;
-    font-size: clamp(15px, 1.5vw, 25px);
-    color: #606060;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 4%;
-    
-    
+  font-family: 'Unbounded-Regular', sans-serif;
+  font-size: clamp(15px, 1.5vw, 25px);
+  color: #606060;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 4%;
+
+
 }
 
 .subDescription {
-    font-family: 'Unbounded-Medium', sans-serif;
-    font-size: clamp(10px, 1.5vw, 15px);
-    color: #474747;
-    margin-left: 17.5%;
-    margin-right: 17.5%;
-    margin-top: 5%;
-    width: 60%;
+  font-family: 'Unbounded-Medium', sans-serif;
+  font-size: clamp(10px, 1.5vw, 15px);
+  color: #474747;
+  margin-left: 17.5%;
+  margin-right: 17.5%;
+  margin-top: 5%;
+  width: 60%;
 
 }
 
-.description, .title-header-top, .subDescription {
-    text-align: center;
-    padding: 0;
-  }
-
-  /*BUTTON START*/
-
-  .buttonBlock{
-    margin-top: 2.5%;
-    font-family: 'Unbounded-Regular', sans-serif;
-    
+.description,
+.title-header-top,
+.subDescription {
+  text-align: center;
+  padding: 0;
 }
 
-  .resumeButton {
-    color: white;
-    background-color: rgba(51, 48, 48);
-    white-space: nowrap;
-    position: relative; 
-    z-index: 2; 
-    overflow: visible;
-    border: none;
+/*BUTTON START*/
+
+.buttonBlock {
+  margin-top: 2.5%;
+  font-family: 'Unbounded-Regular', sans-serif;
+
+}
+
+.resumeButton {
+  color: white;
+  background-color: rgba(51, 48, 48);
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+  border: none;
 }
 
 .resumeButton::before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    background-size: 400%;
-    position: absolute;
-    top: -2px;  
-    left: -2px;  
-    bottom: -2px; 
-    right: -2px;  
-    z-index: -2; 
-    filter: blur(5px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    border-radius: .5rem; 
-    
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  background-size: 400%;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  bottom: -2px;
+  right: -2px;
+  z-index: -2;
+  filter: blur(5px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: .5rem;
+
 }
 
 .resumeButton::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(51, 48, 48);
-    left: 0;
-    top: 0;
-    z-index: -1; 
-    border-radius: .5rem; 
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(51, 48, 48);
+  left: 0;
+  top: 0;
+  z-index: -1;
+  border-radius: .5rem;
 }
 
 .resumeButton:hover::before {
-    opacity: 1;
+  opacity: 1;
 }
 
 @keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .projectsButton {
-    color: #000000;
-    background-color: rgb(255, 255, 255);
-    border: none;
-    box-shadow: 0 0 75px blue, 0 0 5px blue; 
-    border: none;
+  color: #000000;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  box-shadow: 0 0 75px blue, 0 0 5px blue;
+  border: none;
 }
 
-.projectsButton, .resumeButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: .5rem;
-    cursor: pointer;
-    font-size: clamp(10px, 1.5vw, 20px);
-    transition-duration: 0.4s;
-    width: 45%;
-    margin: 2.5%;
+.projectsButton,
+.resumeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: .5rem;
+  cursor: pointer;
+  font-size: clamp(10px, 1.5vw, 20px);
+  transition-duration: 0.4s;
+  width: 45%;
+  margin: 2.5%;
 }
+
 /*BUTTON END */
 
 
-.logo-image{
+.logo-image {
 
-    max-width: 500px;
-    width: 50%;
-  
-    
-    
+  max-width: 500px;
+  width: 50%;
+
+
+
 }
 
 /*
 Changing color text
 */
 .wordBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    
-    font-family: 'Unbounded-Black', sans-serif;
-   
-    position: absolute;
-  }
-  .wordBoxRelative {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    
-    font-family: 'Unbounded-Black', sans-serif;
-   
-    position: relative;
-  }
-  
-  .wordContainer {
-    position: relative;
-    display: inline-flex;
-  
-  }
-  
-  .word {
-    position: relative;
-    color: black;
-    transition: opacity 1s;
-    font-size: clamp(20px, 4vw, 60px) !important;
-    text-align: center;
-  }
+  font-family: 'Unbounded-Black', sans-serif;
+
+  position: absolute;
+}
+
+.wordBoxRelative {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  font-family: 'Unbounded-Black', sans-serif;
+
+  position: relative;
+}
+
+.wordContainer {
+  position: relative;
+  display: inline-flex;
+
+}
+
+.word {
+  position: relative;
+  color: black;
+  transition: opacity 1s;
+  font-size: clamp(20px, 4vw, 60px) !important;
+  text-align: center;
+}
 
 /* Button padding for different screen size - lazy way */
 @media (min-width: 400px) {
 
-    .projectsButton, .resumeButton{
-        padding: 10px 50px;
-        width: 80%;
-    }
-
-    .wordContainer {
-     display: flow-root;
-    }
-
-   
+  .projectsButton,
+  .resumeButton {
+    padding: 10px 50px;
+    width: 80%;
   }
 
-  @media (min-width: 600px) {
-
-    .projectsButton, .resumeButton{
-        padding: 10px 50px;
-        width: 100%;
-    }
-    .wordContainer {
-      display: inline-flex;
-     }
-   
-  }
-  
-  @media (min-width: 700px) {
-
-    .projectsButton, .resumeButton{
-        padding: 12.5px 80px;
-        width: 45%;
-        
-        
-    }
-    
-  }
-  
-  @media (min-width: 1000px) {
-    .projectsButton, .resumeButton{
-        padding: 15px 120px;
-        
-    }
-    
+  .wordContainer {
+    display: flow-root;
   }
 
+  .title-header-top, .word {
+    font-size: 50px !important;
+  }
 
   .topMain{
+    height: auto !important;
+  }
+ 
+
+}
+
+@media (min-width: 600px) {
+
+  .projectsButton,
+  .resumeButton {
+    padding: 10px 50px;
+    width: 100%;
+  }
+
+  .wordContainer {
+    display: inline-flex;
+  }
+
+  .title-header-top, .word {
+    font-size: clamp(20px, 4vw, 60px) !important;
+  }
+
+  .topMain {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 500px;
+  
+  }
+ 
+
+
+}
+
+@media (min-width: 700px) {
+
+  .projectsButton,
+  .resumeButton {
+    padding: 12.5px 80px;
+    width: 45%;
+  }
+
+}
+
+@media (min-width: 1000px) {
+
+  .projectsButton,
+  .resumeButton {
+    padding: 15px 120px;
+
+  }
+  .topMain{
+
+    height: 100vh !important;
+  }
+
+}
+
+
+.topMain {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  
-  }
+ 
+
+}
