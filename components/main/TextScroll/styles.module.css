@@ -12,7 +12,6 @@
 
 .text {
   display: inline-block;
-  will-change: transform;
   margin: 0 !important;
   padding: 0 !important;
   color: white;
