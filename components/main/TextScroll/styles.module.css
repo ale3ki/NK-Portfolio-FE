@@ -7,7 +7,6 @@
 .scroll {
   display: inline-block;
   white-space: nowrap;
-  animation: scrollAnim 15s linear infinite;
 }
 
 .text {
@@ -18,14 +17,4 @@
   font-size: clamp(20px, 1.5vw, 30px) !important;
   font-family: 'Unbounded-Black', sans-serif !important;
   z-index: 10;
-}
-
-@keyframes scrollAnim {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
 }
