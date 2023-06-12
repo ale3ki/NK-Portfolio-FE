@@ -202,7 +202,7 @@ Changing color text
     font-size: 40px !important;
   }
   .topMain {
-    height: calc(100vh - var(--navbarBodyPadding)) !important;
+    height: calc(100vh - var(--navbarBodyPadding) - 25px) !important;
   }
  
 
@@ -249,7 +249,7 @@ Changing color text
   }
   .topMain{
 
-    height: calc(100vh - var(--navbarBodyPadding)) !important;
+    height: calc(100vh - var(--navbarBodyPadding) - 25px) !important;
   }
 
 }
