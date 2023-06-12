@@ -263,7 +263,7 @@ Changing color text
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - var(--navbarBodyPadding)) !important;
+  height: calc(100vh - var(--navbarBodyPadding) - 25px) !important;
  
 
 }
