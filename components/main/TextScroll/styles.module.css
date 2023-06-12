@@ -1,4 +1,5 @@
-.marqTextElement {
+.scroll {
+  display: flex;
   width: auto;
   white-space: nowrap;
 }
@@ -13,13 +14,18 @@
   }
 }
 
-.marqP {
+.text {
   will-change: transform;
   margin: 0;
   padding: 0;
   color: white;
   font-size: clamp(20px, 1.5vw, 30px) !important;
   font-family: 'Unbounded-Black', sans-serif !important;
-  width: 100%;
   animation: marqP 40s linear infinite;
+}
+
+.scrollHolder{
+  position: relative;
+  overflow: hidden;
+  display: flex;
 }
