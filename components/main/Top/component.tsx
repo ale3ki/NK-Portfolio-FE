@@ -58,20 +58,7 @@ export default function Top() {
         };
     }, [visibleIndex]);
 
-    useEffect(() => {
-        // get the height of the Navbar
-        const setTopMargin = () => {
-            const navbarHeight = document.getElementById('navbar')!.offsetHeight;
-            // set the padding-top of the main element to the Navbar height
-            document.getElementById('main')!.style.height = `calc(100vh - ${navbarHeight}px)`;
-            document.getElementById('main')!.style.marginTop = `${navbarHeight}px`;
-        };
-        setTopMargin();
-        window.addEventListener('resize', setTopMargin)
-        return () => {
-            window.removeEventListener('resize', setTopMargin)
-        };
-    }, [data]);
+    
 
     switch (data) {
         case (null):

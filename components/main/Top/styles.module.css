@@ -192,7 +192,7 @@ Changing color text
   .projectsButton,
   .resumeButton {
     padding: 10px 50px;
-    width: 80%;
+    width: 100%;
   }
 
   .wordContainer {
@@ -200,13 +200,12 @@ Changing color text
   }
 
   .title-header-top, .word {
-    font-size: 50px !important;
+    font-size: 35px !important;
   }
 
   .topMain{
     height: auto !important;
   }
- 
 
 }
 
@@ -215,7 +214,7 @@ Changing color text
   .projectsButton,
   .resumeButton {
     padding: 10px 50px;
-    width: 100%;
+   
   }
 
   .wordContainer {
