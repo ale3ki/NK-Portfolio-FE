@@ -65,7 +65,7 @@ export default function Top() {
             return <div>Whoops, there was a fatal error fetching the data.</div>;
         default:
             return (
-                <div id="main" className={styles.topMain}>
+                <div className={styles.topMain}>
                     <div className={`${styles[`centeredContainer`]} container`}>
                         <div className={`${styles.wordBoxRelative} d-flex} `}>
                             <div className={styles.wordContainer}>

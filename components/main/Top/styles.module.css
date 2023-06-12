@@ -129,7 +129,7 @@
   align-items: center;
   border-radius: .5rem;
   cursor: pointer;
-  font-size: clamp(10px, 1.5vw, 20px);
+  font-size: clamp(13px, 1.5vw, 20px);
   transition-duration: 0.4s;
   width: 45%;
   margin: 2.5%;
@@ -191,7 +191,7 @@ Changing color text
 
   .projectsButton,
   .resumeButton {
-    padding: 10px 50px;
+    padding: 15px 40px;
     width: 100%;
   }
 
@@ -200,7 +200,7 @@ Changing color text
   }
 
   .title-header-top, .word {
-    font-size: 35px !important;
+    font-size: 40px !important;
   }
 
   .topMain{
@@ -231,7 +231,7 @@ Changing color text
     align-items: center;
     justify-content: center;
     height: 100vh;
-    min-height: 500px;
+    min-height: 550px;
   
   }
  
@@ -258,7 +258,7 @@ Changing color text
   }
   .topMain{
 
-    height: 100vh !important;
+    height: calc(100vh - var(--navbarBodyPadding)) !important;
   }
 
 }
