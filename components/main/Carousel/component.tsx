@@ -150,7 +150,7 @@ export default function DynoCaro(props: { pageId: number, containerId: number, l
 
             return (
                 <div className={`${styles[`mainContainer`]} container`}>
-                    <Fade direction="down" triggerOnce>
+                    <Fade triggerOnce>
                         <h1 className={styles.h1Title}>{data?.title || loadingString}</h1>
                     </Fade>
                     <Fade delay={250} triggerOnce>
