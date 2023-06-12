@@ -1,32 +1,32 @@
-.scroll {
-  display: flex;
-  width: auto;
-  white-space: nowrap;
+.scrollHolder{
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
 }
 
-@keyframes marqP {
+.scroll {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollAnim 15s linear infinite;
+}
+
+.text {
+  display: inline-block;
+  will-change: transform;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: white;
+  font-size: clamp(20px, 1.5vw, 30px) !important;
+  font-family: 'Unbounded-Black', sans-serif !important;
+  z-index: 10;
+}
+
+@keyframes scrollAnim {
   0% {
     transform: translateX(0%);
   }
 
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
-}
-
-.text {
-  will-change: transform;
-  margin: 0;
-  padding: 0;
-  color: white;
-  font-size: clamp(20px, 1.5vw, 30px) !important;
-  font-family: 'Unbounded-Black', sans-serif !important;
-  animation: marqP 40s linear infinite;
-  z-index: 10;
-}
-
-.scrollHolder{
-  position: relative;
-  overflow: hidden;
-  display: flex;
 }
