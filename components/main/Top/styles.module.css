@@ -202,10 +202,12 @@ Changing color text
   .title-header-top, .word {
     font-size: 40px !important;
   }
-
-  .topMain{
-    height: auto !important;
+  .topMain {
+    height: calc(100vh - var(--navbarBodyPadding)) !important;
   }
+ 
+
+ 
 
 }
 
@@ -225,16 +227,6 @@ Changing color text
     font-size: clamp(20px, 4vw, 60px) !important;
   }
 
-  .topMain {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    min-height: 550px;
-  
-  }
- 
 
 
 }
@@ -265,11 +257,12 @@ Changing color text
 
 
 .topMain {
+  min-height: 550px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: calc(100vh - var(--navbarBodyPadding)) !important;
  
 
 }
