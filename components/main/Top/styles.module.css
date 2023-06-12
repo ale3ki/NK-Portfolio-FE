@@ -3,7 +3,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding-top: 25px;
+
 }
 
 .title-header-top {
@@ -256,6 +256,8 @@ Changing color text
 
 
 .topMain {
+
+
 
   min-height: 375px;
 
