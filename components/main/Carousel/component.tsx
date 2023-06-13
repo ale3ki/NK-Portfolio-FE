@@ -12,6 +12,8 @@ import Modal from 'react-bootstrap/Modal'
 import Link from 'next/link';
 import { LinkOptions } from '../../../utils/types/interface';
 import { Fade } from 'react-awesome-reveal';
+import Lottie from 'lottie-react';
+import animationData from '../../../public/lottieFiles/LoadingBounce.json'
 
 
 //Our custom nav buttons because the defaults cant be moved.
@@ -109,29 +111,21 @@ export default function DynoCaro(props: { pageId: number, containerId: number, l
             return <div>Whoops, there was a fatal error fetching the data.</div>;
         case (undefined):
             return (
-                <div className={`${styles[`mainContainer`]} container`}>
-                    <h1 className={`${styles.h1Title}`}>{loadingString}</h1>
-                    <p className={styles.pDescription}> {loadingString} </p>
-                    <div className={`${styles[`carouselBox`]}`}>
-                        <Carousel id="dynoCaro" className={styles.carouselBox} interval={null} nextIcon={<NextIcon />} prevIcon={<PrevIcon />} >
-                            <Carousel.Item className={styles.carouselItem}>
-                                <div className={`row`}>
-                                    {Array.from({ length: 6 }, (_, index) => (
-                                        <div className={`col-md-4`} key={index}>
-                                            <Card className={styles.testing}>
-                                                <Card.Img variant="top" src="/portPlaceholder.png" alt={loadingString} className={`${styles[`imgProp`]} img-fluid`} />
-                                                <Card.Body className={styles.cardBody}>
-                                                    <Card.Title className={`${styles[`titleBox`]}`}><h1>{loadingString}</h1></Card.Title>
-                                                </Card.Body>
-                                            </Card>
-                                        </div>
-                                    ))}
-                                </div>
-                            </Carousel.Item>
-                        </Carousel>
+                <div className="testing">
+                    <div className={`${styles[`mainContainer`]} container`}>
+                        <h1 className={`${styles.h1Title}`}>{loadingString}</h1>
+                        <p className={styles.pDescription}> {loadingString} </p>
                     </div>
+
+                    <div style={{ height: '100vh', width: '100vw' }}>
+                        <Lottie animationData={animationData} style={{ height: '100%', width: '100%' }} />
+                    </div>
+
                 </div>
+
             );
+
+
         default:
             const groupedCards = [];
             let totalItems: number = 0;

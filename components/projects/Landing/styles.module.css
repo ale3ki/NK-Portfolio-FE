@@ -15,3 +15,47 @@
     height: 30px; 
     background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 }
+.lottieContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 9999;
+    background-color: black;
+    transition: transform 0.5s ease-in-out;
+}
+
+.start-position {
+    transform: translateY(-100%);
+}
+
+.slide-down {
+    transform: translateY(0);
+}
+
+.slide-up {
+    transform: translateY(-100%);
+}
+
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.fadeOut {
+    animation-name: fadeOut;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.backgroundCover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    z-index: 9998; /* Ensure it's below the Lottie animation */
+}

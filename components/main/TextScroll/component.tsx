@@ -43,7 +43,6 @@ export default function TextScroll(props: { pageId: number, containerId: number,
             return () => animation.pause(); // clean up the animation if the component unmounts or textRef changes
         }
     }, [textRef]);
-    
 
     switch (data) {
         case (null):
