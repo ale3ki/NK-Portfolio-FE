@@ -1,7 +1,7 @@
 .landingMain {
-    position: relative; /* add this */
+    position: relative; 
     background-color: #ffffff;
-    height: 100vh;
+    height: auto;
     padding-top: 25px;
     margin-top: -10px;
 }
