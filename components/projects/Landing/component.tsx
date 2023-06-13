@@ -74,7 +74,7 @@ export default function Landing(props: { pageId: number, backgroundColor: string
                         }
                     </div>
                     {!firstSix &&
-                        <img className={`${styles.landingImg}img-fluid d-block mx-auto`} src={data?.image + data?.blobLinkAppend!} alt="" onLoad={() => setDataLoaded(true)} />
+                        <img className={`${styles.landingImg} img-fluid d-block mx-auto`} src={data?.image + data?.blobLinkAppend!} alt="" onLoad={() => setDataLoaded(true)} />
                     }
                 </div>
             );
