@@ -6,6 +6,8 @@ import { Container } from '../../../utils/ApiDataInterface';
 import { useState, useEffect } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import { NavLink } from 'react-bootstrap';
+import Link from 'next/link';
 
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
@@ -61,10 +63,12 @@ export default function NavBar() {
       return (
         <Navbar collapseOnSelect expand="md" className={`${styles.navbar} border-bottom box-shadow bg-white`}>
           <div className={`container`}>
-            <Navbar.Brand href="/" className={`${styles['d-flex']} d-flex align-items-center`}>
-              <img src="/headerLogo.svg" alt="Your Image" className={`${styles['logo-image']}`} />
-              Nicolaas Kilde
+          <Link href='/' className={styles.imageTextLink}>
+            <Navbar.Brand className={`${styles['d-flex']} d-flex align-items-center`}>
+                <img src="/headerLogo.svg" alt="Your Image" className={`${styles['logo-image']}`} />
+                Nicolaas Kilde
             </Navbar.Brand>
+            </Link>
             <Navbar.Toggle aria-controls="navbarResponsive" />
             <Navbar.Collapse id="navbarResponsive">
               <Nav className="ms-auto">

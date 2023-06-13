@@ -44,13 +44,13 @@ export default function Landing(props: { pageId: number, backgroundColor: string
             setAnimationClass('slide-down');
             setTimeout(() => {
                 setInitialAnimationDone(true);
-                setShowBackground(false); // Hide the white background
-            }, 1000); // Delay in milliseconds. Adjust this value to match the duration of your slide-down animation.
+                setShowBackground(false); 
+            }, 1500); 
         } else if (dataLoaded) {
             setAnimationClass('slide-up');
             setTimeout(() => {
                 setShowLottie(false);
-            }, 1000); // Delay in milliseconds. Adjust this value to match the duration of your slide-up animation.
+            }, 1500); 
         }
     }, [dataLoaded, initialAnimationDone]);
 

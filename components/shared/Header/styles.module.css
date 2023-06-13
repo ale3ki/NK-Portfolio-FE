@@ -9,6 +9,8 @@
 .logo-image {
     height: clamp(30px, 40px, 2vw);
     margin-right: 10px;
+    
+
 }
 
 .nav-link {
@@ -23,10 +25,6 @@
 .nav-link:hover {
     cursor: pointer;
     color: #818181 !important;
-}
-
-.d-flex {
-    font-family: 'Unbounded-Bold', sans-serif;
 }
 
 .aLink {
@@ -194,10 +192,25 @@ button.accept-policy {
   align-items: center;
   text-align: center;
 
-
 }
 
 .text, .icon{
 
   color: #ffffff !important;
 }
+
+.imageTextLink{
+  text-decoration: none;
+}
+
+.d-flex {
+  font-family: 'Unbounded-Bold', sans-serif !important;
+  color: black;   
+}
+
+
+.d-flex:hover{
+
+  color:#474747;
+}
+
