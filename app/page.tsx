@@ -3,6 +3,7 @@ import TopSection from '../components/main/Top/component'
 import AboutMeSection from '../components/main/AboutMe/component'
 import TextScroll from '../components/main/TextScroll/component'
 import MyCarousel from '../components/main/Carousel/component'
+import ModelViewer from '../components/3DComponents/ModelViewer/component'
 import Styles from './page.module.css'
 import { LinkOptions } from '../utils/types/interface';
 
@@ -38,13 +39,11 @@ export default function Page() {
 
   return (
     <main className={Styles[`navMargin`]}>
-
           <TopSection />
           <TextScroll pageId={0} containerId={1} bgColor={textScrollData[0].bgColor} textColor={textScrollData[0].textColor} paddingTop={20} paddingBottom={20} />
           <MyCarousel pageId={0} containerId={2} linkOptions={myLinkOptions} loadingString={"Loading..."} />
           <AboutMeSection />
           <TextScroll pageId={0} containerId={4} bgColor={textScrollData[1].bgColor} textColor={textScrollData[1].textColor} paddingTop={0} paddingBottom={0} />
-      
     </main>
   );
 }

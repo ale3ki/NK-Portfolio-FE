@@ -9,7 +9,6 @@ import Nav from 'react-bootstrap/Nav';
 import { NavLink } from 'react-bootstrap';
 import Link from 'next/link';
 
-
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
 //For the header. we are just grabbing the resume.  We will fix this later as its over kill for the resume.
 const dataLocation: { pageId: number, containerId: number } = {
