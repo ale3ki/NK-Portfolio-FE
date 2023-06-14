@@ -1,9 +1,7 @@
-"use client"
 import { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import { useApiService } from '../../../utils/ApiServiceContext';
 import { Container } from '../../../utils/ApiDataInterface';
-import { isDecorator } from 'typescript';
 
 //Set pageId and containerId to pull the appropriate data.  Easy peazy.
 const dataLocation: { pageId: number, containerId: number } = {
@@ -46,10 +44,9 @@ export default function Footer() {
                   {data?.title || loadingString}
                   <br />
                   View my {' '}
-                  <a href={`${data?.resume}${data?.blobLinkAppend}`}
+                  <a href={`https://docs.google.com/viewer?url=${encodeURIComponent(`${data?.resume}${data?.blobLinkAppend}`)}`}
                     target="_blank" rel="noopener noreferrer"
                     className={styles.resumeLink}
-                    download="Nicolaas Kilde Resume 2023.docx"
                   >
                     resume
                   </a>
