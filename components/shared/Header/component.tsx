@@ -85,7 +85,7 @@ export default function NavBar() {
                   href={`${data?.resume}${data?.blobLinkAppend}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  download="Nicolaas Kilde Resume 2023.pdf"
+                  download="Nicolaas Kilde Resume 2023.docx"
                   className={`${styles['resumeLink']} text-center`}
                 >
                   <span className={`${styles[`text`]} `}>Resume </span>
