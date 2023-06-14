@@ -46,11 +46,10 @@ export default function Footer() {
                   {data?.title || loadingString}
                   <br />
                   View my {' '}
-                  <a href={`${data?.resume}${data?.blobLinkAppend}`}
-                     target="_blank" rel="noopener noreferrer"
-                     download
-                     className={styles.resumeLink}
-                    >
+                  <a href={`https://docs.google.com/viewer?url=${data?.resume}`}
+                    target="_blank" rel="noopener noreferrer"
+                    className={styles.resumeLink}
+                  >
                     resume
                   </a>
                 </h1>
@@ -67,5 +66,6 @@ export default function Footer() {
           </div>
         </div>
       );
+
   }
 };
