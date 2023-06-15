@@ -46,7 +46,7 @@ export default function Footer() {
                   {data?.title || loadingString}
                   <br />
                   View my {' '}
-                  <a href={`https://docs.google.com/viewer?url=${encodeURIComponent(`${data?.resume}${data?.blobLinkAppend}`)}`}
+                  <a href={`${data?.resume}${data?.blobLinkAppend}`}
                     target="_blank" rel="noopener noreferrer"
                     className={styles.resumeLink}
                   >

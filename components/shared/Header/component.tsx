@@ -82,7 +82,7 @@ export default function NavBar() {
                   </Nav.Link>
                 ))}
                 <Nav.Link
-                  href={`https://docs.google.com/viewer?url=${encodeURIComponent(`${data?.resume}${data?.blobLinkAppend}`)}`}
+                  href={`${data?.resume}${data?.blobLinkAppend}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   download="Nicolaas Kilde Resume 2023.docx"
