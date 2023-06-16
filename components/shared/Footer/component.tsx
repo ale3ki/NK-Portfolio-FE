@@ -61,7 +61,7 @@ export default function Footer() {
                 <div className="copywriteContainer">
                   <p className={styles[`copywrite-bottom`]}>
                     {data?.copyright || loadingString}
-                    <a className={`${styles.devResume}`} href='/anthonyKildeResume.docx'>Developer Resume</a>
+                    <a className={`${styles.devResume}`} href='/anthonyKildeResume.pdf' target="_blank" rel="noopener noreferrer">Developer Resume</a>
                   </p>
                  
 
