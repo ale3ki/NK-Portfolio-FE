@@ -100,3 +100,17 @@
     
 }
 
+
+
+.devResume{
+
+    color: black;
+
+
+}
+
+.devResume:hover{
+
+    color: #474747;
+    cursor: pointer;
+}

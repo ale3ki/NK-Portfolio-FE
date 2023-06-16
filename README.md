@@ -219,6 +219,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ---
 © 2023 ale3ki. All Rights Deprecated.
 
-Engineered with enthusiasm, endurance, and extra-strong espresso. 🚂☕
+Engineered with enthusiasm, endurance, and extra-strong espresso. 🚂☕ 
 
 ```

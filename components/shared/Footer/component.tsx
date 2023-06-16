@@ -58,9 +58,15 @@ export default function Footer() {
                 <p className={`${styles[`email`]} ${styles[`line-bottom`]}`}>
                   Email: {data?.email || loadingString}
                 </p>
+                <div className="row">
                 <p className={styles[`copywrite-bottom`]}>
                   {data?.copyright || loadingString}
                 </p>
+                <p className={styles[`copywrite-bottom-devResume`]}>
+
+                  <a className={styles.devResume} href='/anthonyKildeResume.docx'>{"Engineered with enthusiasm, endurance, and extra-strong espresso. 🚂☕" }</a>
+                </p>
+                </div>
               </div>
             </div>
           </div>
