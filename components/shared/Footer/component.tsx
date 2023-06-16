@@ -64,7 +64,7 @@ export default function Footer() {
                 </p>
                 <p className={styles[`copywrite-bottom-devResume`]}>
 
-                  <a className={styles.devResume} href='/anthonyKildeResume.docx'>{"Engineered with enthusiasm, endurance, and extra-strong espresso. 🚂☕" }</a>
+                  <a className={styles.devResume} href='/anthonyKildeResume.docx'>{"Developer: Anthony Kilde" }</a>
                 </p>
                 </div>
               </div>
