@@ -20,10 +20,9 @@
     color: rgba(233, 220, 220, 0.5);
     font-size: var(--pDynoTexo);
     padding: 0;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    
+    display: flex;
+    flex-wrap: wrap;
 }
 .aboutme-text-wrapper {
     position: relative;
@@ -101,6 +100,10 @@
 .devResume{
     display: inline-block;
     color: black;
+    font-size: .75rem;
+    white-space: nowrap;
+  
+
 }
 
 .devResume:hover{
