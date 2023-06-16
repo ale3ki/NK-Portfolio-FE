@@ -20,6 +20,10 @@
     color: rgba(233, 220, 220, 0.5);
     font-size: var(--pDynoTexo);
     padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
 }
 .aboutme-text-wrapper {
     position: relative;
@@ -34,7 +38,6 @@
     font-family: 'Unbounded-Black', sans-serif;
     font-size: 24px;
     font-weight: bold;
-
     position: relative;
     color: #E5E5E5;
 }
@@ -44,7 +47,6 @@
     font-size: var(--h2DynoTexo);
     font-weight: bold;
     margin-bottom: var(--myTopBotMargin);
-    
     position: relative;
     color: #E5E5E5;
 }
@@ -69,14 +71,11 @@
     position: relative;
     width: 100%;
     pointer-events: auto;
-   
 }
 
 .resumeLink {
     color: #57DDFF;
     text-decoration: none;
-    
-    
 }
 
     .resumeLink:hover {
@@ -97,17 +96,14 @@
     width: 100%;
     height: 3px;
     background-color: #E5E5E5; 
-    
 }
 
-
-
 .devResume{
+    display: inline-block;
     color: black;
 }
 
 .devResume:hover{
-
     color: #474747;
     cursor: pointer;
 }

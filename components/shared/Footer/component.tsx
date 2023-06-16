@@ -61,13 +61,12 @@ export default function Footer() {
                 <div className="copywriteContainer">
                   <p className={styles[`copywrite-bottom`]}>
                     {data?.copyright || loadingString}
-                    <a className={`${styles.devResume} text-right`} href='/anthonyKildeResume.docx'>Developed By: Anthony Kilde</a>                  </p>
+                    <a className={`${styles.devResume}`} href='/anthonyKildeResume.docx'>Developed By: Anthony Kilde</a>                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       );
-
   }
 };
