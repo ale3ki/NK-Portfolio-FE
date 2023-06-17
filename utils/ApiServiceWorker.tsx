@@ -34,6 +34,37 @@ class ApiService {
        // console.error("ERROR: API Services failed to initialize.", error);
       });
     this.serviceStarting = false;
+
+    
+  }
+
+  public async getPageData(pageID: number): Promise<PageData | null> {
+    const status = await this.checkStatus();
+  
+    switch (status) {
+      case 'success':
+       // console.log("INFO: API Service is prepared to retrieve data from local cache.");
+        const pageData = this.allPages![pageID];
+        
+        if (pageData) {
+         // console.log("INFO: API Services successfully retrieved the data.");
+          return pageData;
+        } else {
+          //Automates logging the undefined page.
+          this.nullDataLogger([`Page ${pageID}`], [pageData]);
+          return null;
+        }
+  
+      case 'loading':
+        // Waiting for 1 second before retry. 
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        return this.getPageData(pageID);
+  
+      default:
+        //Failed will default here aswell.
+        //At this point, something fatal happened and we need to check the console logs. 
+        return null; 
+    }
   }
 
   public async getContainerDataByPageID(pageID: number, containerID: number): Promise<Container | null> {

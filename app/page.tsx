@@ -6,6 +6,8 @@ import MyCarousel from '../components/main/Carousel/component'
 import ModelViewer from '../components/3DComponents/ModelViewer/component'
 import Styles from './page.module.css'
 import { LinkOptions } from '../utils/types/interface';
+import { useApiService } from '../utils/ApiServiceContext';
+import { Container, PageData } from '../utils/ApiDataInterface';
 
 const topScrollColor: string = 'linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)';
 const textScrollData = [
@@ -34,8 +36,7 @@ let myLinkOptions: LinkOptions = {
     "/projects/receiver"]
 }
 
-export default function Page() {
-
+export default async function Page() {
 
   return (
     <main className={Styles[`navMargin`]}>
