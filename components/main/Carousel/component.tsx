@@ -113,11 +113,10 @@ export default function DynoCaro(props: { pageId: number, containerId: number, l
             return (
                 <div className="testing">
                     <div  className={`${styles[`mainContainer`]} container`}>
-                        <h1 id="dynoCaro"  className={`${styles.h1Title}`}>{loadingString}</h1>
-                        <p className={styles.pDescription}> {loadingString} </p>
+                        <h1 className={`${styles.h1Title}`}>{loadingString}</h1>
+                        <p id="dynoCaro" className={styles.pDescription}> {loadingString} </p>
                     </div>
-
-                    <div  style={{ height: '100vh', width: '100vw' }}>
+                    <div style={{ height: '100vh', width: '100vw' }}>
                         <Lottie animationData={animationData} style={{ height: '100%', width: '100%' }} />
                     </div>
 

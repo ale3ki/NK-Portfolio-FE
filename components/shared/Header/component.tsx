@@ -42,15 +42,14 @@ export default function NavBar() {
     ];
 
   const handleClick = (event: any, path: any) => {
-    event.preventDefault();
+    
     const hash = path.split('#')[1];
     if (pathname == '/' || path == navLinks[2].path) {
+      event.preventDefault();
       const element = document.getElementById(hash);
       element?.scrollIntoView({ behavior: 'smooth' });
     }
-    else {
-      router.push(path);
-    }
+
   };
   //Switch case for the 3 different possible html structures.
   //Loading, Error Fetching Data, and default.
