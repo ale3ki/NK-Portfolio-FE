@@ -62,24 +62,24 @@ export default function NavBar() {
       return (
         <Navbar collapseOnSelect expand="md" className={`${styles.navbar} border-bottom box-shadow bg-white`}>
           <div className={`container`}>
-          <Link href='/' className={styles.imageTextLink}>
-            <Navbar.Brand className={`${styles['d-flex']} d-flex align-items-center`}>
+            <Link href='/' className={styles.imageTextLink}>
+              <Navbar.Brand className={`${styles['d-flex']} d-flex align-items-center`}>
                 <img src="/headerLogo.svg" alt="Your Image" className={`${styles['logo-image']}`} />
                 Nicolaas Kilde
-            </Navbar.Brand>
+              </Navbar.Brand>
             </Link>
             <Navbar.Toggle aria-controls="navbarResponsive" />
             <Navbar.Collapse id="navbarResponsive">
               <Nav className="ms-auto">
                 {navLinks.map((link, index) => (
-                  <Nav.Link
+                  <Link
                     key={index}
                     onClick={(event) => handleClick(event, link.path)}
                     href={link.path}
                     className={`${styles['nav-link']} ${styles.noUnderline} ${styles.textCenter}`}
                   >
                     {link.name}
-                  </Nav.Link>
+                  </Link>
                 ))}
                 <Nav.Link
                   href={`${data?.resume}${data?.blobLinkAppend}`}
