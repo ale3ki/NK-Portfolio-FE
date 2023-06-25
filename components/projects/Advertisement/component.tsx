@@ -48,7 +48,7 @@ export default function MockUp(props: { pageId: number }) {
                         </div>
                     </Fade>
                     <Zoom duration={500} triggerOnce>
-                        <img className='img-fluid mx-auto d-block' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found"/>
+                        <img className='img-fluid mx-auto d-block' src={data?.image + data?.blobLinkAppend!} alt="Image Not Found"/>
                     </Zoom>
                 </div>
             );
