@@ -43,22 +43,21 @@ export default function Research(props: { pageId: number }) {
                     <div className={` container`}>
                         <div className='row'>
                             <Fade direction="down" triggerOnce>
-                        <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
-                        </Fade>
+                                <h1 className={styles.mainTitle}>{data?.title || loadingString}</h1>
+                            </Fade>
                             <div className={`${styles[`myCol`]} col-12 col-md-6`}>
-                            <Fade direction="down" triggerOnce>
-                                <h2 className={styles.myH2}>{data?.title2 || loadingString}</h2>
+                                <Fade direction="down" triggerOnce>
+                                    <h2 className={styles.myH2}>{data?.title2 || loadingString}</h2>
                                 </Fade>
                                 <Fade delay={500} triggerOnce>
-                                <p className={styles.myDescription} dangerouslySetInnerHTML={{__html: data?.description || loadingString}} />
-                                </Fade>
+                                    <p className={styles.myDescription}>{data?.description2 || loadingString}</p>                                </Fade>
                             </div>
                             <div className={`${styles[`myCol`]} col-12 col-md-6`}>
-                            <Fade direction="down" triggerOnce>
-                                <h2 className={styles.myH2}>{data?.title3 || loadingString}</h2>
+                                <Fade direction="down" triggerOnce>
+                                    <h2 className={styles.myH2}>{data?.title3 || loadingString}</h2>
                                 </Fade>
                                 <Fade delay={500} triggerOnce>
-                                <p className={styles.myDescription} dangerouslySetInnerHTML={{__html: data?.description2 || loadingString}} />
+                                    <p className={styles.myDescription}>{data?.description2 || loadingString}</p>
                                 </Fade>
                             </div>
                         </div>
