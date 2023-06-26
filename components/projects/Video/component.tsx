@@ -53,7 +53,7 @@ export default function DemoVideo(props: { pageId: number, containerId: number }
                             <h1 className={styles.mainTitle}>Demo Video</h1>
                         </Fade>
                         <div className={styles.videoWrapper}>
-                            <video ref={videoRef} className={`${styles[`videoMain`]} img-fluid mx-auto d-block`} src={data?.video! + data?.blobLinkAppend! || loadingString} />
+                            <video ref={videoRef} className={`${styles[`videoMain`]} img-fluid mx-auto d-block`} src={data?.image ? (data.image + data.blobLinkAppend!) : ""} />
                             <div className={`${styles.playButton} ${isPlaying ? styles.playing : ''}`} onClick={togglePlay}>
                                 {!isPlaying && 'Play'}
                             </div>

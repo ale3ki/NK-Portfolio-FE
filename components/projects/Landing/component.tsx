@@ -70,11 +70,11 @@ export default function Landing(props: { pageId: number, backgroundColor: string
                         <h1 className={`${styles[`header`]} text-center`}> {data?.title}</h1>
                         <p className='text-center'>{data?.description}</p>
                         {firstSix &&
-                            <img className={`${styles.landingImg} img-fluid d-block mx-auto`} src={data?.image + data?.blobLinkAppend!} alt={""} onLoad={() => setDataLoaded(true)} />
+                            <img className={`${styles.landingImg} img-fluid d-block mx-auto`} src={data?.image ? (data.image + data.blobLinkAppend!) : ""} alt="Landing img goes here" onLoad={() => setDataLoaded(true)} />
                         }
                     </div>
                     {!firstSix &&
-                        <img className={`${styles.landingImg} img-fluid d-block mx-auto`} src={data?.image + data?.blobLinkAppend!} alt="" onLoad={() => setDataLoaded(true)} />
+                        <img className={`${styles.landingImg} img-fluid d-block mx-auto`} src={data?.image ? (data.image + data.blobLinkAppend!) : ""} alt="Landing img goes here" onLoad={() => setDataLoaded(true)} />
                     }
                 </div>
             );

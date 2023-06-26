@@ -47,7 +47,7 @@ export default function Iterations(props: { pageId: number }) {
                         </Fade>
                     </div>
                     <Slide triggerOnce>
-                        <img className='img-fluid mx-auto d-block' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found"/>
+                        <img className='img-fluid mx-auto d-block' src={data?.image ? (data.image + data.blobLinkAppend!) : ""} alt="Image Not Found"/>
                     </Slide>
                 </div>
             );

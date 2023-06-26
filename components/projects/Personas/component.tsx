@@ -50,7 +50,7 @@ export default function Personas(props: { pageId: number }) {
                         </Fade>
                     </div>
                     <Slide direction="right" triggerOnce>
-                        <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found" />
+                        <img className='img-fluid' src={data?.image ? (data.image + data.blobLinkAppend!) : ""} alt="Image Not Found" />
                     </Slide>
                 </div>
             );

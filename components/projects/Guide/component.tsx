@@ -49,7 +49,7 @@ export default function Guide(props: { pageId: number }) {
                             </Fade>
                         </div>
                         <Fade delay={250} triggerOnce >
-                            <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found" />
+                            <img className='img-fluid' src={data?.image + data?.blobLinkAppend!} alt="Image Not Found" />
                         </Fade>
                     </div>
                 </div>

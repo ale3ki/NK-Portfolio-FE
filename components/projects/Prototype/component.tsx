@@ -47,7 +47,7 @@ export default function Prototype(props: { pageId: number }) {
                             <p className={styles.myDescription}>{data?.description}</p>
                         </Fade>
                         <Zoom duration={500} triggerOnce>
-                            <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Image Not Found" />
+                            <img className='img-fluid' src={data?.image ? (data.image + data.blobLinkAppend!) : ""} alt="Image Not Found" />
                         </Zoom>
                     </div>
                 </div>

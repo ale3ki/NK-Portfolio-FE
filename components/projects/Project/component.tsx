@@ -80,13 +80,13 @@ export default function Project(props: { pageId: number }) {
                                     <h1 className={styles.mainTitle}>{data?.title2 || loadingString}</h1>
                                 </Fade>
                                 <Fade direction='left' triggerOnce>
-                                    <img className={`${styles['myBtmLeftImg']} img-fluid`} src={data?.imageBLeft + data?.blobLinkAppend!} alt="Image Not Found" />
+                                    <img className={`${styles['myBtmLeftImg']} img-fluid`} src={data?.image ? (data.image + data.blobLinkAppend!) : ""} alt="Image Not Found" />
                                 </Fade>
                             </div>
                         </div>
                         <div className={`${styles['mySecondCol']} col-12 col-lg-6 container`}>
                             <Fade direction='right' triggerOnce>
-                                <img className={`${styles['myBtmRightImg']} img-fluid`} src={data?.imageMidRight + data?.blobLinkAppend!} alt="Image Not Found" />
+                                <img className={`${styles['myBtmRightImg']} img-fluid`} src={data?.image ? (data.image + data.blobLinkAppend!) : ""} alt="Image Not Found" />
                             </Fade>
                         </div>
                     </div>

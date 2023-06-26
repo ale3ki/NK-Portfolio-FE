@@ -45,7 +45,7 @@ export default function Project(props: { pageId: number }) {
             <h1>{data?.title || loadingString}</h1>
             </Fade>
             <Fade direction="left" triggerOnce>
-            <img className='img-fluid' src={data?.image + data?.blobLinkAppend! || loadingString} alt="Could Not Find Image"/>
+            <img className='img-fluid' src={data?.image ? (data.image + data.blobLinkAppend!) : ""} alt="Could Not Find Image"/>
             </Fade>
         </div>
       );
